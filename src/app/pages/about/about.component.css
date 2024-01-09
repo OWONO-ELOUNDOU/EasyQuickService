@@ -1,0 +1,42 @@
+section {
+    margin: 5% 0;
+}
+#hero .col-1,
+#hero .col-2 {
+    max-width: 500px;
+    width: 100%;
+}
+#hero .col-1 strong {
+    color: #7952b3;
+}
+/* #hero .buttons {
+    gap: 20px;
+    font-size: 13px;
+}
+#hero .buttons .signup-btn {
+    padding: 10px 30px;
+    border-radius: 30px;
+    background-color: #7952b3;
+    color: #fff;
+}
+#hero .buttons .login-btn {
+    color: #7952b3;
+    padding: 10px 30px;
+    border-radius: 30px;
+    border: 1px solid #7952b3;
+} */
+
+@media screen and (max-width: 950px) {
+    section {
+        margin-top: 25%;
+        padding: 0 5%;
+        gap: 30px;
+    }
+    section .col-1,
+    section .col-2 {
+        width: auto;
+    }
+    section .col-1 h1 {
+        font-size: 38px;
+    }
+}

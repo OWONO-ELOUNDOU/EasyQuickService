@@ -1,0 +1,9 @@
+input, textarea {
+    padding-left: 10px;
+}
+@media screen and (max-width: 950px) {
+    #contact-form {
+        margin-top: 25%;
+        padding: 0 5%;
+    }
+}

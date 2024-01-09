@@ -1,0 +1,11 @@
+.slides {
+    width: 500px;
+    height: 400px;
+    border: 1px solid red;
+}
+
+@media screen and (max-width: 950px) {
+    .slides {
+        width: auto;
+    }
+} 

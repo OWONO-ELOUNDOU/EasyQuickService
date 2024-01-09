@@ -1,22 +1,23 @@
-<section class="hero flex items-start justify-between flex-wrap p-28">
-    <div class="image">
-        <img src="../../../assets/images/person.webp" alt="person">
-    </div>
+<section class="hero">
+    <!-- <div class="image">
+        <img src="../../../assets/images/person.webp" alt="person" width="300px" height="300px">
+    </div> -->
+    <app-image-slider [slides]="slides"/>
     <div class="text">
-        <img
-            src="../../../assets/images/favicon.webp"
-            alt="logo-icon"
-            width="70px"
-            height="70px"
-        >
-        <h1 class="font-bold text-3xl">Effectuer vos différentes opérations sans se déplacer</h1>
-        <p>
-            Faire effectuer,formalités, courses, opérations, missions administratives, privées,
-            familiale au Cameroun sans se déplacer.
-        </p>
-        <div class="btns">
-            <a href="#service" class="cta-btn bg-indigo-600">Commandez <i class='bx bxs-hand-down'></i></a>
-        </div>
+      <img
+          src="../../../assets/images/favicon.webp"
+          alt="logo-icon"
+          width="70px"
+          height="70px"
+      >
+      <h1 class="font-bold text-3xl">Effectuer vos différentes opérations sans se déplacer</h1>
+      <p>
+          Faire effectuer,formalités, courses, opérations, missions administratives, privées,
+          familiale au Cameroun sans se déplacer.
+      </p>
+      <div class="btns">
+          <a href="#service" class="cta-btn bg-indigo-600">Commandez <i class='bx bxs-hand-down'></i></a>
+      </div>
     </div>
 </section>
 
@@ -29,7 +30,7 @@
           </div>
           <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <article class="flex max-w-xl flex-col items-start justify-between">
-              <div class="group relative">
+              <div class="group">
                 <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                   <a href="#">
                     <span class="absolute inset-0"></span>
@@ -40,7 +41,7 @@
                     Vous voulez effectuer le suivi d'un dossier, d'une information, d'un RDV, d'un colis ou tout nécessitant une attention particulière 
                 </p>
               </div>
-              <div class="relative mt-8 flex items-center gap-x-4">
+              <div class="mt-8 flex items-center gap-x-4">
                 <div class="text-sm leading-6">
                   <p class="font-semibold text-gray-900">
                     <a href="#" id="info">
@@ -52,7 +53,7 @@
               </div>
             </article>
             <article class="flex max-w-xl flex-col items-start justify-between">
-              <div class="group relative">
+              <div class="group">
                 <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                   <a href="#">
                     <span class="absolute inset-0"></span>
@@ -63,7 +64,7 @@
                     Vous souhaitez chercher un dossier, une information, un colis, un RDV ou tout autre bien en lien à votre activité
                 </p>
               </div>
-              <div class="relative mt-8 flex items-center gap-x-4">
+              <div class="mt-8 flex items-center gap-x-4">
                 <div class="text-sm leading-6">
                   <p class="font-semibold text-gray-900">
                     <a href="#" id="info">
@@ -75,7 +76,7 @@
               </div>
             </article>
             <article class="flex max-w-xl flex-col items-start justify-between">
-              <div class="group relative">
+              <div class="group">
                 <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                   <a href="#">
                     <span class="absolute inset-0"></span>
@@ -86,7 +87,7 @@
                     Vous souhaitez vérifier un dossier, une information, un RDV, un colis ou tout autre élément nécessiare à votre activité
                 </p>
               </div>
-              <div class="relative mt-8 flex items-center gap-x-4">
+              <div class="mt-8 flex items-center gap-x-4">
                 <div class="text-sm leading-6">
                   <p class="font-semibold text-gray-900">
                     <a href="#" id="info">
@@ -98,7 +99,7 @@
               </div>
             </article>
             <article class="flex max-w-xl flex-col items-start justify-between">
-              <div class="group relative">
+              <div class="group">
                 <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                   <a href="#">
                     <span class="absolute inset-0"></span>
@@ -109,7 +110,7 @@
                     Vous voulez obtenir un dossier, une information, un RDV, un colis ou tout autre élément essentiel pour votre activité.
                 </p>
               </div>
-              <div class="relative mt-8 flex items-center gap-x-4">
+              <div class="mt-8 flex items-center gap-x-4">
                 <div class="text-sm leading-6">
                   <p class="font-semibold text-gray-900">
                     <a href="#" id="info">
@@ -136,7 +137,7 @@
             <span>À Propos de </span><h2 class="text-3xl font-semibold text-indigo-600">EasyQuickService</h2>
         </div>
       <figure class="mt-10">
-        <blockquote class="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+        <blockquote class="text-left text-l font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
           <p>
             “Une plateforme de services numériques qui permet aux personnes morales et aux particuliers de l'interieur comme de l'exterieur du Cameroun, de commander en ligne, la réalisation de diverses courses, missions administratives, professionnelles et privées au Cameroun et à l'international.”
             </p>

@@ -1,3 +1,11 @@
+.hero {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 7%;
+}
 .hero .image {
     max-width: 600px;
 }
@@ -40,4 +48,16 @@
 }
 #service article:hover #info{
     color: #7952b3;
+}
+
+@media screen and (max-width: 950px) {
+    .hero {
+        width: 100%;
+        margin-top: 20%;
+        justify-content: center;
+        padding: 5%;
+    }
+    .hero .text img {
+        display: none;
+    }
 }
