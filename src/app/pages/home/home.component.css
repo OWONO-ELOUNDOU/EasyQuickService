@@ -1,0 +1,43 @@
+.hero .image {
+    max-width: 600px;
+}
+.hero .image img {
+    width: 100%;
+    flex-grow: 1;
+}
+.hero .text {
+    width: 500px;
+    padding: 25px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 30px;
+}
+.hero .text p {
+    font-size: 15px;
+    color: #7e7d7d;
+}
+.hero .text .btns .cta-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/* service section css */
+#service article {
+    transition: all 0.3s ease-in;
+}
+#service article:hover {
+    border: 1px solid #7952b3;
+    border-radius: 10px;
+    padding: 20px;
+}
+#service article:hover #info{
+    color: #7952b3;
+}

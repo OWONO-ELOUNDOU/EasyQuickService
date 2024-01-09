@@ -1,0 +1,19 @@
+a {
+    cursor: pointer;
+    color: #777;
+    transition: all 0.3s ease;
+}
+ul li a:hover:not(.login-btn) {
+    color: #7952b3;
+    text-decoration: overline;
+}
+.login-btn {
+    display: flex;
+    align-items: center;
+}
+.login-btn i {
+    margin-left: 10px;
+}
+.login-btn:hover {
+    color: #7952b3;
+}
