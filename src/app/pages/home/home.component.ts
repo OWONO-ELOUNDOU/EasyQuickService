@@ -11,19 +11,19 @@ import { ImageSliderComponent } from '../../Components/image-slider/image-slider
 export class HomeComponent {
   slides: any[] = [
     {
-      url: 'https://picsum.photos/seed/picsum/200/300',
+      url: 'assets/images/person.webp',
       title: 'First slide',
       description: 'This is the first slide'
     },
     {
-      url: 'https://picsum.photos/seed/picsum/200/300',
+      url: 'assets/images/image1.webp',
       title: 'Second slide',
       description: 'This is the second slide'
     },
-    {
-      url: 'https://picsum.photos/seed/picsum/200/300',
-      title: 'Third slide',
-      description: 'This is the third slide'
-    },
+    // {
+    //   url: 'assets/images/round.webp',
+    //   title: 'Third slide',
+    //   description: 'This is the third slide'
+    // },
   ];
 }

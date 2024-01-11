@@ -2,5 +2,18 @@
     <div
         class="slide"
         [ngStyle]="{ 'background-image': 'url('+ slides[currentSlide].url +')' }"
-    ></div>
+    >
+        <div id="indicators">
+            @for (slide of slides; track $index) {
+                <div
+                    class="indicator"
+                    (click)="jumpToSlide($index)"
+                    [ngClass]="{ active: $index == currentSlide }"
+                ></div>
+            }
+        </div>
+    </div>
+
+    <button (click)="next()">Next</button>
+    <button (click)="previous()">Previous</button>
 </div>
