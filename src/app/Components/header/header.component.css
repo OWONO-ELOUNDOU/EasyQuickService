@@ -1,4 +1,3 @@
-
 a {
     cursor: pointer;
     color: #777;
@@ -26,6 +25,8 @@ ul li a:hover:not(.login-btn) {
 
 @media screen and (max-width: 950px) {
     nav {
+        justify-content: center;
+        flex-direction: column;
         width: 100%;
         top: 0;
         left: 0;
@@ -48,4 +49,16 @@ ul li a:hover:not(.login-btn) {
     .buttons {
         display: none;
     }
+    .buttons.open {
+        display: block;
+    }
+    .nav-link.open {
+        width: 100%;
+        display: block;
+    }
+    .nav-link li {
+        text-align: center;
+        margin: 15px 0;
+    }
+
 }

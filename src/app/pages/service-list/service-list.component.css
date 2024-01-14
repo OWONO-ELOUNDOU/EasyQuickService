@@ -1,0 +1,10 @@
+@media screen and (max-width: 950px) {
+    ul {
+        margin-top: 18%;
+        padding: 20px;
+    }
+    img {
+        width: 80px;
+        height: 80px;
+    }
+}

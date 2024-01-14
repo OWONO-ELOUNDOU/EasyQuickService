@@ -1,0 +1,29 @@
+section {
+    width: 100%;
+}
+section .image,
+section .text {
+    max-width: 500px;
+    width: 100%;
+}
+
+#mission .col-1,
+#mission .col-2 {
+    max-width: 500px;
+    width: 100%;
+}
+
+#form .col-1 form fieldset {
+    width: 400px;
+}
+
+@media screen and (max-width: 950px) {
+    section {
+        padding: 21% 20px;
+        justify-content: center;
+    }
+    section .image,
+    section .text {
+        width: 100%;
+    }
+}

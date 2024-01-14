@@ -36,6 +36,9 @@ section {
     section .col-2 {
         width: auto;
     }
+    section .col-2 img {
+        width: 100%;
+    }
     section .col-1 h1 {
         font-size: 38px;
     }

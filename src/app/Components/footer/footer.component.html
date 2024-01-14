@@ -1,1 +1,34 @@
-<p>footer works!</p>
+
+<footer class="p-20">
+    <div class="container-form flex justify-between flex-wrap gap-8">
+        <div class="footer-col">
+            <h4 class="text-2xl font-bold text-indigo-600 mb-8">Easy-Quick-Service</h4>
+            <ul>
+                @for (link of links; track $index) {
+                    <li class="p-2.5 border-b">
+                        <a routerLink="{{ link.path }}">{{ link.name }}</a>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 class="text-2xl font-bold mb-8">Aide</h4>
+            <ul>
+                <li class="p-2.5 border-b"><a href="#">FAQ</a></li>
+                <li class="p-2.5 border-b"><a href="#">Privacy Policy</a></li>
+                <li class="p-2.5 border-b"><a href="#">Programme Affiliation</a></li>
+                <li class="p-2.5 border-b"><a href="#">Options de Paiement </a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 class="text-2xl font-bold mb-8">Follow Us on</h4>
+            <ul class="social-links">
+                @for (media of socialMedia; track $index) {
+                    <li>
+                        <a [href]="media.url"><i class='{{ media.icon }} mb-2.5 mr-2.5 text-xl'></i>{{ media.name }}</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</footer>

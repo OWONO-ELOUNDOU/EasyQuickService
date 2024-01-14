@@ -4,27 +4,20 @@
       <span class="text-3xl font-semibold text-indigo-600">EasyQuickService</span>
       <div id="menu" (click)="toggleMenu()">
         <i
-          class="fa-solid fa-{{ isOpenMenu ? 'bars' : 'xmark' }}"
+          class="fa-solid fa-{{ isOpenMenu ? 'xmark' : 'bars' }}"
         ></i>
       </div>
     </div>
     <ul class="nav-link flex items-center py-2.5" [class.open]="isOpenMenu">
-      <li class="mr-5">
-        <a routerLink="/home">Accueil</a>
-      </li>
-      <li class="mr-5">
-        <a routerLink="/service-list">Services</a>
-      </li>
-      <li class="mr-5">
-        <a routerLink="/contact">Contact</a>
-      </li>
-      <li class="mr-5">
-        <a routerLink="/about">A Propos</a>
-      </li>
+      @for (link of links; track $index) {
+        <li class="mr-5">
+          <a [routerLink]="link.path">{{ link.name }}</a>
+        </li>
+      }
     </ul>
-    <div class="buttons">
+    <div class="buttons" [class.open]="isOpenMenu">
         <a
-          routerLink="/login"
+          routerLink="login"
           class="login-btn"
         >
           connexion <i class="fa-solid fa-arrow-right-to-bracket"></i>

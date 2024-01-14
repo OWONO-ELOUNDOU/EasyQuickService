@@ -1,25 +1,3 @@
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
-<!--
-  This example requires updating your template:
-
-  ```
-  <html class="h-full bg-white">
-  <body class="h-full">
-  ```
--->
 <div id="login-form" class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <img class="mx-auto h-10 w-auto" src="../../../assets/images/favicon.webp" alt="Your Company">
@@ -75,7 +53,7 @@
   
       <p class="mt-10 text-center text-sm text-gray-500">
         pas encore membre?
-        <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Inscription</a>
+        <a routerLink="/signup" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Inscription</a>
       </p>
     </div>
   </div>

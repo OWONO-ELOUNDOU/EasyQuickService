@@ -1,0 +1,16 @@
+footer {
+    background-color: #f7f7fc;
+}
+@media screen and (max-width: 950px) {
+    footer {
+        width: 100%;
+        padding: 20px;
+    }
+    .container-form {
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .container-form .footer-col {
+        width: 100%;
+    }
+}
