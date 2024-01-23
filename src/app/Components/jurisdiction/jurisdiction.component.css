@@ -1,0 +1,13 @@
+input {
+    padding-left: 10px;
+}
+input::placeholder {
+    font-size: 10px;
+}
+
+@media screen and (max-width: 950px) {
+    .signup-form {
+        margin-top: 20%;
+        padding: 0 5%;
+    }
+}

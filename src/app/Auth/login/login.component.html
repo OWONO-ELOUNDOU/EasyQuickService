@@ -5,7 +5,7 @@
     </div>
   
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" class="space-y-6">
+      <form [formGroup]="loginForm" class="space-y-6">
         <div>
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Adresse mail</label>
           <div class="mt-2">
@@ -14,11 +14,17 @@
               name="email"
               type="email"
               autocomplete="email"
+              formControlName="email"
               required
               class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              ngModel
             >
           </div>
+          @if (email?.errors?.['required']) {
+            <span class="text-xs text-red-500">adresse mail requise</span>
+          }
+          @if (email?.errors?.['email']) {
+            <span class="text-xs text-red-500">Entrer une adresse mail correcte</span>
+          }
         </div>
   
         <div>
@@ -33,12 +39,15 @@
               id="password"
               name="password"
               type="password"
-              autocomplete="current-password" 
+              autocomplete="password"
+              formControlName="password"
               required 
               class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              ngModel
             >
           </div>
+          @if (password?.errors?.['required']) {
+            <span class="text-xs text-red-500">mot de passe requis</span>
+          }
         </div>
   
         <div>

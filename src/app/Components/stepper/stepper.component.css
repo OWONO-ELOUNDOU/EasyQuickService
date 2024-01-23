@@ -1,0 +1,17 @@
+button {
+    transition: all .3s ease-in;
+}
+button.active {
+    padding: 10px 30px;
+    letter-spacing: 1px;
+    background-color: #7952b3;
+    color: #fff;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 950px) {
+    .container {
+        margin-top: 20%;
+        padding: 0 5px;
+    }
+}

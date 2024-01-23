@@ -7,6 +7,10 @@ section .text {
     width: 100%;
 }
 
+section .image .btns2 {
+    display: none;
+}
+
 #mission .col-1,
 #mission .col-2 {
     max-width: 500px;
@@ -25,5 +29,19 @@ section .text {
     section .image,
     section .text {
         width: 100%;
+    }
+    section .text h1 {
+        text-align: center;
+        font-size: xx-large;
+    }
+    section .text p {
+        text-align: center;
+        text-wrap: balance;
+    }
+    section .text .btns {
+        display: none;
+    }
+    section .image .btns2 {
+        display: flex;
     }
 }

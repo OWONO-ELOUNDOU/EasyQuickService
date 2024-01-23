@@ -60,4 +60,8 @@
     .hero .text img {
         display: none;
     }
+    .hero .text p {
+        text-align: center;
+        text-wrap: balance;
+    }
 }
