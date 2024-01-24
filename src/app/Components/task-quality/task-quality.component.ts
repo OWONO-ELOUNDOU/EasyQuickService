@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CdkStepperModule, } from '@angular/cdk/stepper';
+import { CdkStepperModule } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-task-quality',
   standalone: true,
-  imports: [CdkStepperModule,],
+  imports: [CdkStepperModule],
   templateUrl: './task-quality.component.html',
   styleUrl: './task-quality.component.css'
 })

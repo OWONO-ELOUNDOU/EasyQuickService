@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CdkStepperModule } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-task-type',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CdkStepperModule],
   templateUrl: './task-type.component.html',
   styleUrl: './task-type.component.css'
 })

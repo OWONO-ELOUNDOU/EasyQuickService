@@ -1,15 +1,21 @@
 <div class="select-container mt-8">
-    <label for="browser" class="mr-8">Choisir la qualité de service sollicité :</label>
-    <input
-        list="browsers"
-        name="browser"
-        id="browser"
-        class="border"
-    />
+    <div id="list">
+        <label for="browser" class="mr-8">Choisir la qualité de service sollicité :</label>
+        <input
+            list="browsers"
+            name="browser"
+            id="browser"
+            class="border"
+        />
 
-    <datalist id="browsers">
-        @for (quality of taskQualities; track $index) {
-            <option [value]="quality.name">
-        }
-    </datalist>
+        <datalist id="browsers">
+            @for (quality of taskQualities; track $index) {
+                <option [value]="quality.name">
+            }
+        </datalist>
+    </div>
+    <div class="btns flex items-center justify-betwenn gap-4">
+        <button cdkStepperPrevious class="mt-4 py-2 px-8 text-white bg-indigo-600 rounded">précédent</button>
+        <button cdkStepperNext class="mt-4 py-2 px-8 text-white bg-indigo-600 rounded">Suivant</button>
+    </div>
 </div>
