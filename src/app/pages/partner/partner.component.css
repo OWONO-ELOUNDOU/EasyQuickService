@@ -7,6 +7,10 @@ section .text {
     width: 100%;
 }
 
+section .image span {
+    display: none;
+}
+
 section .image .btns2 {
     display: none;
 }
@@ -29,6 +33,9 @@ section .image .btns2 {
     section .image,
     section .text {
         width: 100%;
+    }
+    section .image span {
+        display: block;
     }
     section .text h1 {
         text-align: center;

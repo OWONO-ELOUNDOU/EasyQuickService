@@ -1,0 +1,15 @@
+<div class="select-container mt-8">
+    <label for="browser" class="mr-8">Choisir le type de service sollicité :</label>
+    <input
+        list="browsers"
+        name="browser"
+        id="browser"
+        class="border"
+    />
+
+    <datalist id="browsers">
+        @for (type of taskTypes; track $index) {
+            <option [value]="type.name">
+        }
+    </datalist>
+</div>

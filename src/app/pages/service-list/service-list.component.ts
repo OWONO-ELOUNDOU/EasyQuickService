@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 
 import { StepperComponent } from '../../Components/stepper/stepper.component';
-import { InfoServiceComponent } from '../../Components/info-service/info-service.component';
 import { JurisdictionComponent } from '../../Components/jurisdiction/jurisdiction.component';
 import { DescriptionComponent } from '../../Components/description/description.component';
 import { FinishComponent } from '../../Components/finish/finish.component';
+import { TaskObjComponent } from '../../Components/task-obj/task-obj.component';
+import { TaskTypeComponent } from '../../Components/task-type/task-type.component';
+import { TaskQualityComponent } from '../../Components/task-quality/task-quality.component';
 
 @Component({
   selector: 'app-service-list',
@@ -15,7 +17,9 @@ import { FinishComponent } from '../../Components/finish/finish.component';
     CommonModule,
     CdkStepperModule,
     StepperComponent,
-    InfoServiceComponent,
+    TaskObjComponent,
+    TaskTypeComponent,
+    TaskQualityComponent,
     JurisdictionComponent,
     DescriptionComponent,
     FinishComponent

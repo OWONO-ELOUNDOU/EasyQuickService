@@ -1,0 +1,15 @@
+<div class="select-container mt-8">
+    <label for="browser" class="mr-8">Choisir la qualité de service sollicité :</label>
+    <input
+        list="browsers"
+        name="browser"
+        id="browser"
+        class="border"
+    />
+
+    <datalist id="browsers">
+        @for (quality of taskQualities; track $index) {
+            <option [value]="quality.name">
+        }
+    </datalist>
+</div>

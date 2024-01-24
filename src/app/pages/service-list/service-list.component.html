@@ -1,15 +1,21 @@
 <div class="container">
     <div class="row">
-        <div class="mx-auto flex max-w-7xl items-center justify-between flex-wrap p-6 lg:px-8">
+        <div class="mx-auto flex max-w-7xl items-center justify-center flex-wrap p-6 lg:px-8">
             <app-stepper [linearModeSelected]="false" #appStepper>
-                <cdk-step [label]="'Information service'">
-                    <app-info-service />
+                <cdk-step [label]="'Type du service'">
+                    <app-task-type />
                 </cdk-step>
-                <cdk-step [label]="'Nature de la Juridiction'">
-                    <app-jurisdiction />
+                <cdk-step [label]="'objet du service'">
+                    <app-task-obj />
                 </cdk-step>
-                <cdk-step [label]="'Description du service sollicité'">
+                <cdk-step [label]="'qualité du service'">
+                    <app-task-quality />
+                </cdk-step>
+                <cdk-step [label]="'Description du service'">
                     <app-description />
+                </cdk-step>
+                <cdk-step [label]="'Structure / Administration'">
+                    <app-jurisdiction />
                 </cdk-step>
                 <cdk-step [label]="'Comfirmation'">
                     <app-finish />

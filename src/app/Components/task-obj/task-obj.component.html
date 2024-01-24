@@ -1,0 +1,15 @@
+<div class="select-container mt-8">
+    <label for="browser" class="mr-8">Choisir l'objet du service sollicité :</label>
+    <input
+        list="browsers"
+        name="browser"
+        id="browser"
+        class="border"
+    />
+
+    <datalist id="browsers">
+        @for (object of taskObjects; track $index) {
+            <option [value]="object.name">
+        }
+    </datalist>
+</div>
