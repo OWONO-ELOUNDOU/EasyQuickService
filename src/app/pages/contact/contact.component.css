@@ -3,7 +3,6 @@ input, textarea {
 }
 @media screen and (max-width: 950px) {
     #contact-form {
-        margin-top: 25%;
-        padding: 0 5%;
+        padding: 20% 5%;
     }
 }

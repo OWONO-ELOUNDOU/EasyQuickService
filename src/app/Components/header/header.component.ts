@@ -1,29 +1,28 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { animate, style, transition, trigger } from '@angular/animations';
 
-import { navLinks } from '../../models/navlink';
+import { mobileLinks, navLinks } from '../../models/navlink';
+import { AuthService } from '../../services/Auth/auth.service';
+import { UserService } from '../../Auth/service/user.service';
 
-// const enterTransition = transition(':enter', [
-//   style({
-//     opacity: 0
-//   }),
-//   animate('1s ease-in', style({opacity: 1}))
-// ])
-// const fadeIn = trigger('fadeIn', [enterTransition]);
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
-  // animations: [fadeIn]
+  styleUrl: './header.component.css'
 })
 export class HeaderComponent {
   isOpenMenu: boolean = false;
+  links = navLinks;
+  mobiles = mobileLinks;
 
-  links = navLinks
+  user$ = this.usersService.currentUserProfile$;
+
+  constructor(
+    private usersService: UserService
+  ) {}
 
   toggleMenu() {
     this.isOpenMenu = !this.isOpenMenu;

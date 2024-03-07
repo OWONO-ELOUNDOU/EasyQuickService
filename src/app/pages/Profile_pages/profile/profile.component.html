@@ -1,0 +1,52 @@
+<div class="container mb-8">
+    <div
+        class="image border-b mb-4"
+        *ngIf="user$ | async as user"
+    >
+
+        <div>
+            <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Profile Utilisateur</label>
+            <div
+                class="mt-2 flex justify-start gap-8 rounded-full py-10"
+                routerLink="/user"
+            >
+                <div class="col-1">
+                    <div class="profile-img">
+                        <img
+                            width="80"
+                            height="80"
+                            [src]="user.photoURL ?? '../../assets/images/avatar.svg'"
+                            alt=""
+                            class="border rounded-full mb-4 p-2"
+                        >
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h3>{{ user.displayName }}</h3>
+                    <span class="text-gray-400">{{ user.email }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="flex items-center flex-wrap gap-4 p-2 rounded-lg my-4">
+        <li class="bg-gray-100"><i class="fa-regular fa-clock"></i> Historique services</li>
+        <li class="bg-gray-100"><i class="fa-solid fa-dollar-sign"></i> Transactions</li>
+        <li class="bg-gray-100"><i class="fa-regular fa-bell"></i> Notifications</li>
+        <li class="bg-gray-100">- item 4</li>
+        <li class="bg-gray-100">- item 5</li>
+    </ul>
+
+    <ul class="flex items-center flex-wrap gap-4 p-2 rounded-lg my-4">
+        <li class="bg-gray-100">- Historique services</li>
+        <li class="bg-gray-100">- Transactions</li>
+        <li class="bg-gray-100">- Notifications</li>
+        <li class="bg-gray-100">- list</li>
+        <li class="bg-gray-100">- list</li>
+    </ul>
+
+    <div class="logout border-b" (click)="signOut()">
+        <button>Déconnexion</button>
+        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+    </div>
+</div>

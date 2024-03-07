@@ -1,6 +1,6 @@
 <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
     <div class="logo flex items-center">
-      <img src="../../../assets/images/favicon.webp" alt="Easy-Quick-Service web page" width="40px" height="40px" />
+      <!-- <img src="../../../assets/images/favicon.webp" alt="Easy-Quick-Service web page" width="40px" height="40px" /> -->
       <span class="text-3xl font-semibold text-indigo-600">EasyQuickService</span>
       <div id="menu" (click)="toggleMenu()">
         <i
@@ -17,11 +17,31 @@
     </ul>
 
     <div class="buttons" [class.open]="isOpenMenu">
-      <a
-        routerLink="login"
-        class="login-btn"
-      >
-        connexion <i class="fa-solid fa-arrow-right-to-bracket"></i>
-      </a>
+      <ng-container *ngIf="user$ | async as user; else loginButton">
+        <a
+          routerLink="profile"
+          class="login-btn"
+        >
+          {{ user.displayName }} <img [src]="user.photoUrl ?? '../../assets/images/avatar.svg'" class="rounded-full ml-4" width="30" height="30">
+        </a>
+      </ng-container>
+
+      <ng-template #loginButton>
+        <a
+          routerLink="login"
+          class="login-btn"
+        >
+          connexion <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </a>
+      </ng-template>
   </div>
 </nav>
+
+<div class="mobile-nav flex items-center justify-between gap-x-4 px-8 py-3 border-t bg-white">
+  @for (mobile of mobiles; track $index) {
+    <div class="navlink flex items-center justify-center flex-col gap-y-2" routerLink="{{ mobile.path }}">
+      <i class="{{ mobile.iconName }} text-lg text-indigo-600"></i>
+      <!-- <p class="text-sm">{{ mobile.name }}</p> -->
+    </div>
+  }
+</div>

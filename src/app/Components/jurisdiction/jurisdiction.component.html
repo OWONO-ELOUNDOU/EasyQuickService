@@ -1,11 +1,11 @@
 <div class="signup-form">
     <form #serviceForm="ngForm" (ngSubmit)="onSubmit(serviceForm.value)">
-        <div class="space-y-12 mt-6">
-    
+        <div class="flex items-center justify-start flex-wrap gap-6 space-y-12 mt-6">
+            <div class="img">
+                <img src="../../../assets/images/structure.jpg" alt="" width="350" height="350">
+            </div>
             <div class="border-b border-gray-900/10 pb-12">
-                <h2 class="text-base font-semibold leading-7 text-gray-900">Information sur la juridiction</h2>
-                <p class="mt-1 text-sm leading-6 text-gray-600">Utilisé des informations valables pour nous permettre de retrouver les personnalités nécessaires.</p>
-    
+                <h2 class="text-base font-semibold leading-7 text-gray-900">Localisation de votre prestation</h2>    
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-3">
                         <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Nature juridique de la structure à voir</label>
@@ -54,7 +54,6 @@
 
                 </div>
             </div>
-    
         </div>
     
         <div class="mt-6 flex items-fle justify-between gap-x-6">

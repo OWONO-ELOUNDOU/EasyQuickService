@@ -13,6 +13,9 @@ button.active {
         margin-top: 20%;
         padding: 0 5px;
     }
+    .container ul {
+        width: 100%;
+    }
     button .label{
         display: none;
     }

@@ -1,54 +1,63 @@
-section {
+.hero {
     width: 100%;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, transparent, #b487f770, transparent);
 }
-section .image,
-section .text {
+.hero .hero-image,
+.hero .hero-text {
     max-width: 500px;
     width: 100%;
 }
-
-section .image span {
-    display: none;
-}
-
-section .image .btns2 {
-    display: none;
-}
-
-#mission .col-1,
-#mission .col-2 {
-    max-width: 500px;
+.hero .hero-image img {
     width: 100%;
 }
 
-#form .col-1 form fieldset {
-    width: 400px;
+.hero .hero-image span,
+.hero .hero-image .btns2 {
+    display: none;
+}
+#mission .col1,
+#mission .col2 {
+    max-width: 500px;
+    width: 100%;
+}
+#mission .col1 ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
+    grid-gap: 20px;
 }
 
 @media screen and (max-width: 950px) {
     section {
-        padding: 21% 20px;
+        padding: 25% 20px;
         justify-content: center;
+        margin-bottom: 30px;
     }
-    section .image,
-    section .text {
+    .hero .hero-image,
+    .hero .hero-text {
         width: 100%;
     }
-    section .image span {
-        display: block;
-    }
-    section .text h1 {
-        text-align: center;
-        font-size: xx-large;
-    }
-    section .text p {
-        text-align: center;
-        text-wrap: balance;
-    }
-    section .text .btns {
+    .hero .hero-text p,
+    .hero .hero-text .btns {
         display: none;
     }
-    section .image .btns2 {
+    .hero .hero-image span {
+        display: block;
+    }
+    .hero .hero-image .btns2 {
         display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .hero .hero-image .btns2 a  {
+        width: 100%;
+    }
+
+    #title {
+        font-size: 2rem;
     }
 }

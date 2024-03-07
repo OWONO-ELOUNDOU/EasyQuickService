@@ -5,7 +5,7 @@ textarea {
 
 @media screen and (max-width: 950px) {
     .signup-form {
-        margin-top: 23%;
+        margin-bottom: 20%;
         padding: auto;
     }
     textarea {

@@ -1,17 +1,16 @@
-<section class="hero flex items-center justify-between flex-wrap p-28">
-    <div class="text text-center">
-      <h1 class="font-bold text-5xl mb-4">Devenir Partenaire</h1>
-      <span class="font-bold text-2xl">&</span>
-      <p class="font-bold text-gray-600 mb-4">
-        Augmentez vos revenus avec les missions en free-lance
+<section class="hero flex items-center justify-center flex-wrap gap-6 p-12">
+    <div class="hero-text">
+      <h1 class="font-bold text-5xl mb-4">Bienvenue sur</h1>
+      <span class="text-center text-yellow-600 font-bold mb-4">Easyquickservice.net<br/><strong class="text-base text-blue-400">Easy-jober</strong></span>
+      <p class="font-bold text-xl text-gray-600 mt-4">
+        Devenez Partenaire & Augmentez vos revenus avec les missions en free-lance dans votre pays
       </p>
-      <span class="text-center text-yellow-600">Easy-quick-Service</span>
-      <div class="btns flex items-center justify-start flex-wrap pl-4 gap-8 mt-4">
-          <a href="partner#form" class="text-white text-xs px-7 py-3 bg-indigo-600 rounded-full">Créer un compte <i class='bx bxs-hand-down'></i></a>
-          <a routerLink="/login" class="text-xs text-indigo-600 border border-indigo-600 rounded-full px-7 py-3 ">Connexion <i class='bx bxs-hand-down'></i></a>
+      <div class="btns flex items-start justify-between flex-wrap gap-4 mt-6">
+          <a href="partner#form" class="text-white text-xs px-7 py-3 bg-indigo-600">Créer un compte <i class='bx bxs-hand-down'></i></a>
+          <a routerLink="/login" class="text-xs text-indigo-600 border border-indigo-600 px-7 py-3 ">Connexion <i class='bx bxs-hand-down'></i></a>
       </div>
     </div>
-    <div class="image text-center">
+    <div class="hero-image text-center">
         <img
             src="../../../assets/images/image3.jpeg"
             class="mb-8"
@@ -19,19 +18,19 @@
             width="500px"
             height="500px"
         >
-        <span class="text-2xl font-bold">Rejoigner notre équipe</span>
-        <div class="btns2 flex items-center justify-center flex-wrap gap-4 mt-8">
-          <a href="partner#form" class="text-white text-xs px-7 py-3 bg-indigo-600 rounded-full">Créer un compte <i class='bx bxs-hand-down'></i></a>
-          <a routerLink="/login" class="text-xs text-indigo-600 border border-indigo-600 rounded-full px-7 py-3 ">Connexion <i class='bx bxs-hand-down'></i></a>
-      </div>
+        <span class="text-center text-xl text-gray-500 font-bold">Devenez Partenaire & Augmentez vos revenus avec les missions en free-lance dans votre pays</span>
+        <div class="btns2 flex items-start justify-between flex-wrap gap-4 mt-6">
+            <a href="partner#form" class="text-white text-xs px-7 py-3 bg-indigo-600">Créer un compte <i class='bx bxs-hand-down'></i></a>
+            <a routerLink="/login" class="text-xs text-indigo-600 border border-indigo-600 px-7 py-3 ">Connexion <i class='bx bxs-hand-down'></i></a>
+        </div>
     </div>
 </section>
-<section id="mission" class="flex items-center justify-between flex-wrap p-28">
+<section id="mission" class="flex items-center justify-center flex-wrap gap-6 p-12">
     <div class="col1">
-        <h1 class="text-5xl font-bold mb-8">Les Missions</h1>
+        <h1 class="text-5xl font-bold mb-8">Vos Missions</h1>
         <ul>
             @for (mission of missions; track $index) {
-                <li class="text-l py-7 text-gray-600 border-b">
+                <li class="w-full text-sm p-3 text-gray-600 border rounded-md">
                     <strong>{{ mission.name }}</strong>, {{ mission.description }}
                 </li>
             }
@@ -41,114 +40,147 @@
         <img
             src="../../../assets/images/image2.webp"
             alt="les missions sur l'étendue du territoire camerounais"
-            width="400px"
-            height="400px"
+            width="300px"
+            height="300px"
         >
     </div>
 </section>
-<section class="px-28">
-  <p class="text-xl mb-4">
-    Rejoignez notre communauté de partenaires et augmentez vos revenus par la réalisation des missions
+<section class="banner py-28 px-12 bg-gray-100">
+  <p class="text-center text-2xl font-bold b-4">
+    Rejoignez notre communauté de partenaires <br/>et augmentez vos revenus par la réalisation des missions
   </p>
-  <ul>
-    <li>- Travail libre en free-lance</li>
-    <li>- Missions sur l'étendue du territoire</li>
-    <li>- Rémunération directe par mission</li>
-    <li>- Choisissez votre région ou ville d'activité</li>
+  <ul class="flex items-center justify-center flex-wrap gap-6 mt-12">
+    @for (item of conditions; track $index) {
+        <li class="bg-white border rounded-full py-3 px-7">{{ item.label }}</li>
+    }
   </ul>
 </section>
 <section id="form" class="flex items-center justify-start flex-wrap p-28">
-    <div class="col1">
-        <h1 class="text-5xl font-bold">Rejoigner notre équipe</h1>
-        <div id="login-form" class="flex min-h-full flex-col justify-center px-6 py-6 lg:px-8">
-          
-            <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-              <form class="border p-6 space-y-6">
-                <div>
-                  <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Nom</label>
-                  <div class="mt-2">
-                    <input
-                      id="first-name"
-                      name="firstName"
-                      type="text"
-                      autocomplete="first-name"
-                      required
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      ngModel
-                    >
-                  </div>
-                </div>
-                <div>
-                  <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Prénom</label>
-                  <div class="mt-2">
-                    <input
-                      id="last-name"
-                      name="lastName"
-                      type="text"
-                      autocomplete="last-name"
-                      required
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      ngModel
-                    >
-                  </div>
-                </div>
-                <div>
-                  <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Adresse mail</label>
-                  <div class="mt-2">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autocomplete="email"
-                      required
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      ngModel
-                    >
-                  </div>
-                </div>
-                <div>
-                  <label for="email" class="block text-sm font-medium leading-6 text-gray-900">N° téléphone</label>
-                  <div class="mt-2">
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="text"
-                      autocomplete="phone"
-                      required
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      ngModel
-                    >
-                  </div>
-                </div>
-          
-                <div>
-                  <div class="flex items-center justify-between">
-                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Mot de passe</label>
-                  </div>
-                  <div class="mt-2">
-                    <input
-                      id="password"
-                      name="password"
-                      type="password"
-                      autocomplete="current-password" 
-                      required 
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      ngModel
-                    >
-                  </div>
-                </div>
-          
-                <div>
-                  <button
-                    type="submit"
-                    class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                        Créer votre compte
-                    </button>
-                </div>
-              </form>
+  <form #partnerForm="ngForm" (ngSubmit)="submit(partnerForm.value)">
+    <div class="space-y-12">
+        
 
+      <div class="border-b border-gray-900/10 pb-12">
+          <h2 id="title" class="text-5xl font-semibold leading-7 text-gray-900 mb-6">Rejoignez notre équipe</h2>
+          <p class="mt-1 text-sm leading-6 text-gray-600">Ces informations seront nécessaire à votre identification et localisation.</p>
+
+          <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div class="sm:col-span-3">
+                  <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Nom</label>
+                  <div class="mt-2">
+                      <input
+                          type="text"
+                          name="firstName"
+                          id="first-name"
+                          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          ngModel
+                      >
+                  </div>
+              </div>
+
+              <div class="sm:col-span-3">
+                  <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Prénom</label>
+                  <div class="mt-2">
+                      <input
+                          type="text"
+                          name="lastName"
+                          id="last-name"
+                          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          ngModel
+                      >
+                  </div>
+              </div>
+
+              <div class="sm:col-span-3">
+                  <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+                  <div class="mt-2">
+                      <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          ngModel
+                      >
+                  </div>
+              </div>
+
+              <div class="sm:col-span-3">
+                  <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Téléphone</label>
+                  <div class="mt-2">
+                      <input
+                          id="phone"
+                          name="phone"
+                          type="text"
+                          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          ngModel
+                      >
+                  </div>
+              </div>
+
+              <div class="sm:col-span-3">
+                  <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Mot de passe</label>
+                  <div class="mt-2">
+                      <input
+                          id="password"
+                          name="password"
+                          type="password"
+                          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          ngModel
+                      >
+                  </div>
+              </div>
+
+              <div class="col-span-full">
+                  <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Proposez nous vos autres activités</label>
+                  <div class="mt-2">
+                      <input
+                          type="text"
+                          name="street-address"
+                          id="street-address"
+                          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          ngModel
+                      >
+                  </div>
+              </div>
+
+              <div class="sm:col-span-3 sm:col-start-1">
+                  <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Ville de résidence</label>
+                  <div class="mt-2">
+                      <input 
+                          type="text" 
+                          name="twon" 
+                          id="twon"
+                          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          ngModel
+                      >
+                  </div>
+              </div>
+
+              <div class="sm:col-span-3">
+                  <label for="region" class="block text-sm font-medium leading-6 text-gray-900">Région d'activité</label>
+                  <div class="mt-2">
+                      <input
+                          type="text"
+                          name="region"
+                          id="region"
+                          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          ngModel
+                      >
+                  </div>
+              </div>
             </div>
-        </div>        
+
+            <div class="mt-6">
+              <label for="terms" class="text-sm flex items-center justify-start gap-4"><input type="checkbox" name="terms" id="terms"> J'accepte les conditions générales de service</label>
+            </div>
+      </div>
+
     </div>
+
+    <div class="mt-6 flex items-center justify-between gap-x-6">
+        <button type="submit" class="w-full rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            Créer votre compte
+        </button>
+    </div>
+  </form>
 </section>

@@ -1,7 +1,9 @@
 <div class="signup-form w-full">
     <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm.value)">
         <div class="space-y-12">
-    
+            <div class="img">
+              <img src="../../../assets/images/description.jpeg" alt="" width="350" height="200">
+            </div>
             <div class="border-b border-gray-900/10 pb-12">
                 <h2 class="text-base font-semibold leading-7 text-gray-900">Description du service sollicité</h2>
 
@@ -26,8 +28,6 @@
                     </div>
                   </div>
             </div>
-
-    
         </div>
     
         <div class="mt-6 flex items-center justify-between gap-x-6">

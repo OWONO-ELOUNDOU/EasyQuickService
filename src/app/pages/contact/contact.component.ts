@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ContactForm } from '../../models/contact-form';
+import { ContactService } from '../../services/Contact/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -11,8 +12,12 @@ import { ContactForm } from '../../models/contact-form';
 })
 export class ContactComponent {
 
+  constructor(
+    private contactService: ContactService
+  ) {}
+
   onSubmit(contact: ContactForm) {
-    console.table(contact);
+    this.contactService.addMessage(contact);
   }
 
 }

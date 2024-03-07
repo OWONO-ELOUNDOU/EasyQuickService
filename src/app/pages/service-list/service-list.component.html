@@ -1,26 +1,115 @@
-<div class="container">
-    <div class="row">
-        <div class="mx-auto flex max-w-7xl items-center justify-center flex-wrap p-6 lg:px-8">
-            <app-stepper [linearModeSelected]="false" #appStepper>
-                <cdk-step [label]="'Type du service'">
-                    <app-task-type />
-                </cdk-step>
-                <cdk-step [label]="'objet du service'">
-                    <app-task-obj />
-                </cdk-step>
-                <cdk-step [label]="'qualité du service'">
-                    <app-task-quality />
-                </cdk-step>
-                <cdk-step [label]="'Description du service'">
-                    <app-description />
-                </cdk-step>
-                <cdk-step [label]="'Structure / Administration'">
-                    <app-jurisdiction />
-                </cdk-step>
-                <cdk-step [label]="'Comfirmation'">
-                    <app-finish />
-                </cdk-step>
-            </app-stepper>
-        </div>
+<div class="col-1 flex items-center justify-center flex-col gap-12">
+    <div class="hero flex items-center justify-center flex-col rounded-md text-center">
+        <h1 class="font-bold mb-4">Formulaire de demande de service</h1>
+        <p>
+            Veuillez suivre les étapes suivantes pour remplir le formulaire de demande de service
+        </p>
     </div>
+
+    <hr class="w-full bg-red-400"/>
+
+    <form #taskForm="ngForm" (ngSubmit)="display(taskForm.value)" class="w-full border rounded-md">
+        <div class="box flex items-start mb-4 p-3">
+            <div class="indicator">
+                <span class="number bg-indigo-600 text-white">1</span>
+            </div>
+            <div class="input-field flex items-start justify-center flex-col gap-1">
+                <label for="type">Choisir le type de votre service</label>
+                <select name="type" id="type" class="border w-full" (change)="showItemType($event)" ngModel>
+                    <option value="">-- select --</option>
+                    @for (type of types; track $index) {
+                        <option [value]="type.name">{{ type.name }}</option>
+                    }
+                </select>
+                <p>item selected: {{ selectedType }}</p>
+            </div>
+        </div>
+        <div class="box flex items-start mb-4 p-3">
+            <div class="indicator">
+                <span class="number bg-indigo-600 text-white">2</span>
+            </div>
+            <div class="input-field flex items-start justify-center flex-col gap-1">
+                <label for="object">Choisir l'objet de votre service</label>
+                <select name="object" id="object" class="border w-full" (change)="showItemObj($event)" ngModel>
+                    <option value="">-- select --</option>
+                    @for (object of objects; track $index) {
+                        <option [value]="object.name">{{ object.name }}</option>
+                    }
+                </select>
+                <p>item selected: {{ selectedObj }}</p>
+            </div>
+        </div>
+        <div class="box flex items-start mb-4 p-3">
+            <div class="indicator">
+                <span class="number p-3 bg-indigo-600 text-sm text-white rounded-full">3</span>
+            </div>
+            <div class="input-field flex items-start justify-center flex-col gap-1">
+                <label for="quality">Choisir la qualité du service</label>
+                <select name="quality" id="quality" class="border w-full" (change)="showItemQlt($event)" ngModel>
+                    <option value="">-- select --</option>
+                    @for (quality of qualities; track $index) {
+                        <option [value]="quality.name">{{ quality.name }}</option>
+                    }
+                </select>
+                <p>item selected: {{ selectedQlt }}</p>
+            </div>
+        </div>
+        <div class="box flex items-start mb-4 p-3">
+            <div class="indicator">
+                <span class="number p-3 bg-indigo-600 text-sm text-white rounded-full">4</span>
+            </div>
+            <div class="input-field flex items-start justify-center flex-col gap-1">
+                <label for="description">Description détaillée du service sollicité</label>
+                <textarea
+                    name="description"
+                    id="description"
+                    cols="30"
+                    rows="10"
+                    class="w-full rounded-md border border-indigo-600"
+                    ngModel
+                ></textarea>
+            </div>
+        </div>
+        <div class="box flex items-start mb-4 p-3">
+            <div class="indicator">
+                <span class="number p-3 bg-indigo-600 text-sm text-white rounded-full">5</span>
+            </div>
+            <div class="input-field flex items-start justify-center flex-col gap-1">
+                <h4 class="text-lg mb-2">Localisation de votre prestation</h4>
+                <div class="input-box w-full mb-2">
+                    <label for="" class="text-sm text-gray-600">Nature juridique de la structure à voir</label>
+                    <input
+                        type="text"
+                        class="w-full border"
+                        name="natureJurid"
+                        placeholder="Administration publique, Ets public, Sté publique, Sté privée commerciale, Organisation civile, Association, Personne privée individuelle, Autre"
+                        ngModel
+                    >
+                </div>
+                <div class="input-box w-full mb-2">
+                    <label for="" class="text-sm text-gray-600">Service à voir</label>
+                    <input
+                        type="text"
+                        class="w-full border"
+                        name="service"
+                        placeholder="nom de la structure, adresse, direction, service, porte, personne ou responsable à rencontrer, Téléphone"
+                        ngModel
+                    >
+                </div>
+                <div class="input-box w-full mb-2">
+                    <label for="" class="text-sm text-gray-600">Localisation / adresse</label>
+                    <input
+                        type="text"
+                        class="w-full border"
+                        name="localisation"
+                        placeholder="région, département, ville, rue ou autre précision détaillée"
+                        ngModel
+                    >
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <button type="submit" class="w-full border rounded-md py-2 bg-indigo-600 text-white">Continuer</button>
+        </div>
+    </form>
 </div>

@@ -1,10 +1,51 @@
+.col-1 {
+    width: 100%;
+    padding: 30px 8%;
+}
+.col-1 .hero {
+    width: 100%;
+    height: 400px;
+    padding: 30px 50px;
+    color: #fff;
+    background: linear-gradient(to bottom, #000, transparent),url(../../../assets/images/form.JPG) center no-repeat;
+    background-size: cover;
+}
+.col-1 .hero h1 {
+    font-size: clamp(18px, 2rem, 50px);
+}
+
+.col-1 form {
+    padding: 25px;
+    margin-bottom: 50px;
+}
+form .box {
+    width: 700px;
+}
+form .box .indicator{
+    flex-basis: 15%;
+    border-right: 1px solid #ccc;
+    margin-right: 10px;
+}
+form .box .input-field{
+    flex-basis: 80%;
+}
+
+form .box .indicator .number {
+    padding: 5px 12px;
+    border-radius: 50%;
+}
+input, textarea {
+    padding-left: 5px;
+}
+input::placeholder {
+    font-size: 10px;
+}
+
 @media screen and (max-width: 950px) {
-    ul {
-        margin-top: 18%;
+    .col-1 {
         padding: 20px;
     }
-    img {
-        width: 80px;
-        height: 80px;
+    form .box {
+        width: 100%;
     }
 }

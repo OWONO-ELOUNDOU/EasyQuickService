@@ -1,3 +1,6 @@
+nav {
+    z-index: 2;
+}
 a {
     font-size: small;
     cursor: pointer;
@@ -24,8 +27,18 @@ ul li a:hover:not(.login-btn) {
     display: none;
 }
 
+.mobile-nav {
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    display: none;
+    position: fixed;
+}
+
 @media screen and (max-width: 950px) {
     nav {
+        display: none;
         justify-content: center;
         flex-direction: column;
         width: 100%;
@@ -33,6 +46,7 @@ ul li a:hover:not(.login-btn) {
         left: 0;
         position: fixed;
         background-color: #fff;
+        border-bottom: 1px solid #efefef;
     }
     .logo {
         width: 100%;
@@ -45,7 +59,9 @@ ul li a:hover:not(.login-btn) {
     .logo i {
         font-size: 25px;
     }
-    .logo span,
+    .logo span {
+        font-size: 20px;
+    }
     .nav-link,
     .buttons {
         display: none;
@@ -60,6 +76,10 @@ ul li a:hover:not(.login-btn) {
     .nav-link li {
         text-align: center;
         margin: 15px 0;
+    }
+
+    .mobile-nav {
+        display: flex;
     }
 
 }
