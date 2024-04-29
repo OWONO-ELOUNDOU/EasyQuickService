@@ -1,7 +1,64 @@
-
-<div class="container flex items-center justify-center flex-col gap-8 p-12">
-    <div class="mb-5">
-        <i class="fa fa-check-circle fa-5x" style="color: green;"></i>
+<div class="flex items-center justify-center mb-8 py-3">
+    <h1 class="text-3xl font-bold text-center">Récapitulatif des Informations</h1>
+</div>
+<div class="small-container">
+    <div class="col-1">
+        <div class="field border">
+            <div class="box">
+                <h3>Type de service:</h3>
+                <span>{{ task.type }}</span>
+            </div>
+            <div class="box">
+                <h3>Objet du service:</h3>
+                <span>{{ task.object }}</span>
+            </div>
+            <div class="box">
+                <h3>Qualité du service:</h3>
+                <span>{{ task.quality }}</span>
+            </div>
+        </div>
+        <div class="field description">
+            <h3>Description:</h3>
+            <p class="p-2">{{ task.description }}</p>
+        </div>
+        <div class="field border">
+            <div class="box">
+                <h3>Nature juridique de la structure à voir :</h3>
+                <span>{{ task.natureJurid }}</span>
+            </div>
+            <div class="box">
+                <h3>Service à voir :</h3>
+                <span>{{ task.service }}</span>
+            </div>
+            <div class="box">
+                <h3>Localisation / adresse :</h3>
+                <span>{{ task.localisation }}</span>
+            </div>
+        </div>
+        <div class="buttons">
+            <button routerLink="/service-list">Retour</button>
+            <button
+                class="confirm"
+                (click)="displayTask()"
+            >
+                Confirmer
+            </button>
+        </div>
     </div>
-    <p class="text-center mb-4">Merci de nous faire confiance.<br/>Nous vous rappelerons dans quelques instants.</p>
+    <div class="col-2 border">
+        <h1 class="font-bold">Tarification des services</h1>
+        <div class="info bg-yellow-100 p-2 my-3">
+            <span class="text-sm text-gray-600">
+                La confirmation du formulaire entrainera l'exécution d'automatique du paiement
+                suivant les tarifs fixés ci-après.
+            </span>
+        </div>
+        <div class="prices">
+            <ul>
+                <li>3500 XAF</li>
+                <li>3500 XAF</li>
+                <li>3500 XAF</li>
+            </ul>
+        </div>
+    </div>
 </div>

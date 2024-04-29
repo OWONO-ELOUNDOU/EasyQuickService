@@ -1,0 +1,95 @@
+.small-container {
+    width: 100%;
+    padding: 40px 8%;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.col-1 {
+    flex-basis: 65%;
+}
+.col-1 .field .box {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.col-1 .field .box:not(:last-child) {
+    margin-bottom: 20px;
+}
+.col-1 .field .box h3,
+.col-1 .field.description h3 {
+    font-size: 15px;
+    font-weight: 600;
+}
+.col-1 .field .box span {
+    font-size: 15px;
+    color: #777;
+}
+.col-1 .field:not(:last-child) {
+    margin-bottom: 25px;
+}
+
+.col-1 .field.description {
+    flex-direction: column;
+    padding: 10px;
+}
+.col-1 .field.description p {
+    background-color: #f9f9f9;
+    border-radius: 7px;
+    margin-top: 10px;
+    height: 200px;
+}
+
+.col-2 {
+    flex-basis: 30%;
+    padding: 20px;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.buttons button {
+    border: 1px solid #ccc;
+    width: 250px;
+    padding: 10px 20px;
+}
+.buttons .confirm {
+    border: none;
+    background: purple;
+    color: #fff;
+}
+
+
+@media screen and (max-width: 950px) {
+    .small-container {
+        padding: 40px 5%;
+        align-items: center;
+        justify-content: center;
+    }
+    .col-1,
+    .col-2 {
+        flex-basis: 100%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .small-container {
+        padding: 20px;
+    }
+    .buttons button {
+        width: 100%;
+        padding: 10px 20px;
+    }
+}

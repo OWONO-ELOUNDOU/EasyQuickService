@@ -2,13 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import {
-  FormGroup,
-  FormBuilder,
-  FormControl,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { User } from 'firebase/auth';
 import { concatMap, switchMap } from 'rxjs';
 import { HotToastService } from '@ngneat/hot-toast';
@@ -17,6 +11,7 @@ import { AuthService } from '../../services/Auth/auth.service';
 import { ProfileUser } from '../model/profile-user';
 import { ProfileService } from '../../services/Profile/profile.service';
 import { UserService } from '../service/user.service';
+import { NotificationService } from '../../services/Notification/notification.service';
 
 @Component({
   selector: 'app-signup',
@@ -29,27 +24,14 @@ export class SignupComponent {
 
   user$ = this.authservice.currentUser$;
 
-  profileForm!: FormGroup;
-
   constructor(
     private router: Router,
-    private fb: FormBuilder,
     private toast: HotToastService,
     private authservice: AuthService,
     private usersService: UserService,
     private profileService: ProfileService,
+    private notifService: NotificationService
   ) {
-    this.profileForm = this.fb.group({
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      phone: new FormControl('', [Validators.required]),
-      address: new FormControl('', [Validators.required]),
-      country: new FormControl('', [Validators.required]),
-      region: new FormControl('', [Validators.required]),
-      twon: new FormControl('', [Validators.required]),
-    })
   }
 
   uploadImage(event: any, user: User) {
@@ -61,14 +43,6 @@ export class SignupComponent {
       }),
       concatMap((photoURL) => this.authservice.updateProfileData({ photoURL }))
     ).subscribe();
-  }
-
-  onSubmit() {
-    if(this.profileForm.valid) {
-      console.log(this.profileForm);
-    }else{
-      this.profileForm.markAllAsTouched();
-    }
   }
 
 
@@ -84,7 +58,6 @@ export class SignupComponent {
     ) {
       alert("Vueillez remplir tous les champs");
     } else {
-      console.table(user);
       this.authservice.signUp(user.email, user.password).pipe(
         switchMap(({ user: { uid } }) => this.usersService.addUser({
           uid,
@@ -103,7 +76,7 @@ export class SignupComponent {
           loading: 'Signing In...',
           error: ({message}) => `${message}`
         })
-      ).subscribe(() => {
+      ).subscribe((res) => {
         this.router.navigate(['/home']);
       })
     }

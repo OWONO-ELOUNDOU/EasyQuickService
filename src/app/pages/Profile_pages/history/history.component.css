@@ -1,0 +1,23 @@
+.history {
+    width: 100%;
+    padding: 30px 8%;
+}
+.history-box {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    gap: 20px;
+}
+.history-box .box {
+    width: 100%;
+    min-width: 300px;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+.box .box-body p {
+    text-wrap: balance;
+}

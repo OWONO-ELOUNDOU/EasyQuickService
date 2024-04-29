@@ -7,16 +7,13 @@ import {
   createUserWithEmailAndPassword,
   UserInfo,
 } from "@angular/fire/auth";
-import { Firestore, addDoc, collection, doc, setDoc } from "@angular/fire/firestore";
-import { Observable, concatMap, from, pipe, switchMap, of } from "rxjs";
-import { ProfileUser } from "../../Auth/model/profile-user";
+import { Observable, concatMap, from, of } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
   constructor(
-    private firestore: Firestore,
     private auth: Auth,
   ) {}
 

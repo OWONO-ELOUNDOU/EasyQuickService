@@ -1,0 +1,119 @@
+.form-preview {
+    max-width: 600px;
+    min-width: 250px;
+    width: 100%;
+}
+.form-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 20px;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.header h3 {
+    font-size: larger;
+    font-weight: 600;
+}
+.header svg {
+    width: 15px;
+    fill: #c3c3c3;
+}
+.form-header .btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-header .btns button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.form-header .btns button svg {
+    width: 13px;
+    fill: #c3c3c3;
+}
+.form-header .btns button:not(:first-child) {
+    margin-left: 25px;
+}
+.form-header .btns button span {
+    font-size: smaller;
+    font-weight: 500;
+}
+
+.form-body {
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+}
+.form-body .title {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #efefef;
+}
+.form-body .title h1 {
+    font-size: larger;
+    font-weight: 600;
+}
+.form-body .details .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #efefef;
+}
+.form-body .details .info .field {
+    width: 250px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+.form-body .details .info .description {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+.form-body .details .info .field label,
+.form-body .details .info .description label,
+.form-body .price .row label {
+    font-size: smaller;
+    color: #c3c3c3;
+}
+.form-body .details .info .field label span,
+.form-body .details .info .description label p,
+.form-body .price .row span {
+    font-size: small;
+    font-weight: 500;
+}
+.form-body .details .info .description label p {
+    text-wrap: balance;
+}
+
+.form-body .price {
+    padding: 10px;
+}
+.form-body .price .row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 50px;
+}
+
+@media screen and (max-width: 560px) {
+    .form-header .btns button span {
+        display: none;
+    }
+}

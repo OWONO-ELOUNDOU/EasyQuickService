@@ -1,51 +1,289 @@
-.col-1 {
+.hero {
     width: 100%;
-    padding: 30px 8%;
-}
-.col-1 .hero {
-    width: 100%;
-    height: 400px;
-    padding: 30px 50px;
-    color: #fff;
-    background: linear-gradient(to bottom, #000, transparent),url(../../../assets/images/form.JPG) center no-repeat;
+    height: 100vh;
+    padding: 5% 8%;
+    background: linear-gradient(to bottom, #000, transparent), url(../../../assets/images/backgrounds/formulaire.jpg) center no-repeat;
     background-size: cover;
 }
-.col-1 .hero h1 {
-    font-size: clamp(18px, 2rem, 50px);
+.hero .small-container .btn a svg {
+    width: 25px;
+    fill: inherit;
+    stroke: #fff;
+    stroke-width: 25px;
 }
 
-.col-1 form {
-    padding: 25px;
-    margin-bottom: 50px;
+.forms form .preview,
+.forms form .service-form {
+    max-width: 630px;
+    min-width: 250px;
+    width: 100%;
 }
-form .box {
-    width: 700px;
-}
-form .box .indicator{
-    flex-basis: 15%;
-    border-right: 1px solid #ccc;
-    margin-right: 10px;
-}
-form .box .input-field{
-    flex-basis: 80%;
+.forms form {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-form .box .indicator .number {
-    padding: 5px 12px;
-    border-radius: 50%;
+.forms form .service-form .section {
+    padding: 10px;
 }
-input, textarea {
-    padding-left: 5px;
+
+.forms form .service-form .section {
+    border-bottom: 1px solid #efefef;
 }
-input::placeholder {
-    font-size: 10px;
+
+.forms form .service-form .section h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.forms form .service-form .input-field {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+.forms form .user-form .input-field:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.forms form .service-form .input-field .input-box {
+    width: 300px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.forms form .service-form .input-field .input-box label {
+    font-size: 13px;
+}
+
+.forms form .service-form .input-field .input-box input {
+    width: 100%;
+    height: 35px;
+    padding: 10px;
+    font-size: 13px;
+    border: 1px solid #efefef;
+    outline: none;
+    border-radius: 10px;
+}
+.forms form .service-form .input-field .input-box select {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    font-size: 13px;
+    border: 1px solid #efefef;
+    outline: none;
+    border-radius: 10px;
+}
+.forms form .service-form .input-field.text {
+    width: 100%;
+}
+.forms form .service-form .input-field textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 13px;
+    border: 1px solid #efefef;
+    outline: none;
+    resize: none;
+    border-radius: 10px;
+}
+
+.forms form .user-form .button,
+.forms form .service-form .button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+}
+.forms form .user-form .button button,
+.forms form .service-form .button button {
+    width: 300px;
+    padding: 10px 0;
+    font-size: 13px;
+    color: #fff;
+    background-color: #5f5ff7;
+}
+
+.cta-btn {
+    cursor: pointer;
+}
+
+/* Preview part */
+.preview {
+    background: #f7f7fc;
+    border-radius: 10px;
+    padding: 20px;
+}
+.form-preview {
+    max-width: 600px;
+    min-width: 250px;
+    width: 100%;
+}
+.form-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 20px;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.header h3 {
+    font-size: larger;
+    font-weight: 600;
+}
+.header svg {
+    width: 15px;
+    fill: #c3c3c3;
+}
+.form-header .btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-header .btns button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.form-header .btns button svg {
+    width: 13px;
+    fill: #c3c3c3;
+}
+.form-header .btns button:not(:first-child) {
+    margin-left: 25px;
+}
+.form-header .btns button span {
+    font-size: smaller;
+    font-weight: 500;
+}
+
+.form-body {
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+}
+.form-body .title {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #efefef;
+}
+.form-body .title h1 {
+    font-size: larger;
+    font-weight: 600;
+}
+.form-body .details .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #efefef;
+}
+.form-body .details .info .field {
+    width: 250px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+.form-body .details .info .description {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+.form-body .details .info .field label,
+.form-body .details .info .description label,
+.form-body .price .row label {
+    font-size: smaller;
+    color: #c3c3c3;
+}
+.form-body .details .info .field label span,
+.form-body .details .info .description label p,
+.form-body .price .row span {
+    font-size: small;
+    font-weight: 500;
+}
+.form-body .details .info .description label p {
+    text-wrap: balance;
+}
+
+.form-body .price {
+    padding: 10px;
+}
+.form-body .price .row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 50px;
 }
 
 @media screen and (max-width: 950px) {
-    .col-1 {
-        padding: 20px;
+    .hero {
+        width: 100%;
+        padding: 5% 3%;
+    }
+    .small-container p {
+        text-align: center;
+        text-wrap: balance;
+    }
+    .small-container .title {
+        text-align: center;
+        font-size: 35px;
+    }
+    .forms {
+        padding: 5px;
+    }
+    .forms .form-nav {
+        width: 100%;
+        padding: 7px;
+    }
+    
+    .forms .form-nav .nav-item,
+    .forms form .user-form .input-field,
+    .forms form .service-form .input-field {
+        width: 100%;
     }
     form .box {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .hero {
+        width: 100%;
+        padding: 5% 10px;
+    }
+    .forms .form-nav .nav-item span {
+        display: none;
+    }
+    .forms form .user-form .input-field .input-box,
+    .forms form .service-form .input-field .input-box {
+        width: 100%;
+    }
+    .forms form .user-form .button button,
+    .forms form .service-form .button button {
+        width: 100%;
+    }
+    .form-header .btns button span {
+        display: none;
     }
 }

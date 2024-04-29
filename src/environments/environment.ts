@@ -1,12 +1,11 @@
 export const environment = {
     // The following environment variables can be set when deploying the app to production.
     firebase: {
-        apiKey: "AIzaSyA5NK-MQ6RARtQDYaoRHNvpDfMTIWchSoE",
-        authDomain: "easyquickservice-ba62a.firebaseapp.com",
-        projectId: "easyquickservice-ba62a",
-        storageBucket: "easyquickservice-ba62a.appspot.com",
-        messagingSenderId: "285476933172",
-        appId: "1:285476933172:web:202cf6f629e135f51f8461",
-        measurementId: "G-V6L268VEPH"
+        apiKey: "AIzaSyA611ZaXUZZxCE7dndCnCHiMnbrWMUFyHs",
+        authDomain: "easyquickservice-551c7.firebaseapp.com",
+        projectId: "easyquickservice-551c7",
+        storageBucket: "easyquickservice-551c7.appspot.com",
+        messagingSenderId: "416813122211",
+        appId: "1:416813122211:web:3b1280fe17744415e27516"
     }
 }

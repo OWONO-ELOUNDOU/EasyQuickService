@@ -1,0 +1,40 @@
+<div class="small-container">
+    <div class="dohone-box">
+        <div class="items-list">
+            <ul>
+                <li>
+                    <h4>Item 1</h4>
+                    <span>description</span>
+                </li>
+                <li>
+                    <h4>Item 2</h4>
+                    <span>description</span>
+                </li>
+                <li>
+                    <h4>Item 3</h4>
+                    <span>description</span>
+                </li>
+                <li>
+                    <h4>Item 4</h4>
+                    <span>description</span>
+                </li>
+            </ul>
+        </div>
+        <div class="user-details">
+            <div class="user-info" *ngIf="user$ | async as user">
+                <div class="info">
+                    <img [src]="user.photoURL ?? '../../../assets/images/avatar.svg'" width="50px" height="50px" alt="">
+                    <div class="address">
+                        <h4>{{ user.displayName }}</h4>
+                        <span>{{ user.email }}</span>
+                    </div>
+                </div>
+                <form action="">
+                    <label for="phone">user phone number</label>
+                    <input type="text" id="phone" placeholder="your phone number (OM / MOMO)">
+                </form>
+            </div>
+            <button>Purchase button<span>3000 XAF</span></button>
+        </div>
+    </div>
+</div>

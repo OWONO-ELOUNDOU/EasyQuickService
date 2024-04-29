@@ -13,6 +13,9 @@ import { PartnerComponent } from './pages/partner/partner.component';
 import { LoginComponent } from './Auth/login/login.component';
 import { ProfileComponent } from './pages/Profile_pages/profile/profile.component';
 import { UserInfoComponent } from './pages/Profile_pages/user-info/user-info.component';
+import { HistoryComponent } from './pages/Profile_pages/history/history.component';
+import { FinishComponent } from './Components/finish/finish.component';
+import { DohoneComponent } from './pages/dohone/dohone.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectToHome = () => redirectLoggedInTo(['home']);
@@ -66,6 +69,24 @@ export const routes: Routes = [
         path: 'user',
         component: UserInfoComponent,
         title: 'User Info',
+        ...canActivate(redirectToLogin)
+    },
+    {
+        path: 'history',
+        component: HistoryComponent,
+        title: 'History',
+        ...canActivate(redirectToLogin)
+    },
+    {
+        path: 'finish',
+        component: FinishComponent,
+        title: 'Confirmation',
+        ...canActivate(redirectToLogin)
+    },
+    {
+        path: 'dohone',
+        component: DohoneComponent,
+        title: 'Dohone Payment',
         ...canActivate(redirectToLogin)
     }
 ];

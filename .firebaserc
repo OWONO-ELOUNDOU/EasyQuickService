@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "easyquickservice-ba62a"
-  }
+    "default": "easyquickservice-551c7"
+  },
+  "targets": {},
+  "etags": {}
 }

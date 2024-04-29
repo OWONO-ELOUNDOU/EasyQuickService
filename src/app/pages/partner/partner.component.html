@@ -1,31 +1,31 @@
-<section class="hero flex items-center justify-center flex-wrap gap-6 p-12">
-    <div class="hero-text">
-      <h1 class="font-bold text-5xl mb-4">Bienvenue sur</h1>
-      <span class="text-center text-yellow-600 font-bold mb-4">Easyquickservice.net<br/><strong class="text-base text-blue-400">Easy-jober</strong></span>
-      <p class="font-bold text-xl text-gray-600 mt-4">
+<app-header />
+<section class="hero flex items-center justify-center">
+    <div class="small-container flex items-center justify-center flex-col">
+      <h1 class="title text-5xl text-white font-bold mb-8">Devenez partenaire avec Easyquickservic</h1>
+      <p class="text-white text-md mb-8">
         Devenez Partenaire & Augmentez vos revenus avec les missions en free-lance dans votre pays
       </p>
-      <div class="btns flex items-start justify-between flex-wrap gap-4 mt-6">
-          <a href="partner#form" class="text-white text-xs px-7 py-3 bg-indigo-600">Créer un compte <i class='bx bxs-hand-down'></i></a>
-          <a routerLink="/login" class="text-xs text-indigo-600 border border-indigo-600 px-7 py-3 ">Connexion <i class='bx bxs-hand-down'></i></a>
+      <div class="btn flex items-center justify-center gap-4 text-white">
+        <a
+            href="partner#form"
+            class="text-white text-xs font-medium px-7 py-3 border-2"
+        >
+            Créer un compte
+        </a>
+        <a
+            routerLink="/login"
+            class="text-black text-xs font-medium px-7 py-3 bg-white"
+        >
+            Se connecter
+        </a>
       </div>
     </div>
-    <div class="hero-image text-center">
-        <img
-            src="../../../assets/images/image3.jpeg"
-            class="mb-8"
-            alt="augmenter votre revenu et chiffre  d'affaire avec le partenariat Easy-quick-Service"
-            width="500px"
-            height="500px"
-        >
-        <span class="text-center text-xl text-gray-500 font-bold">Devenez Partenaire & Augmentez vos revenus avec les missions en free-lance dans votre pays</span>
-        <div class="btns2 flex items-start justify-between flex-wrap gap-4 mt-6">
-            <a href="partner#form" class="text-white text-xs px-7 py-3 bg-indigo-600">Créer un compte <i class='bx bxs-hand-down'></i></a>
-            <a routerLink="/login" class="text-xs text-indigo-600 border border-indigo-600 px-7 py-3 ">Connexion <i class='bx bxs-hand-down'></i></a>
-        </div>
-    </div>
 </section>
-<section id="mission" class="flex items-center justify-center flex-wrap gap-6 p-12">
+
+<section
+    id="mission"
+    class="flex items-center justify-center p-8"
+>
     <div class="col1">
         <h1 class="text-5xl font-bold mb-8">Vos Missions</h1>
         <ul>
@@ -35,14 +35,6 @@
                 </li>
             }
         </ul>
-    </div>
-    <div class="col2">
-        <img
-            src="../../../assets/images/image2.webp"
-            alt="les missions sur l'étendue du territoire camerounais"
-            width="300px"
-            height="300px"
-        >
     </div>
 </section>
 <section class="banner py-28 px-12 bg-gray-100">
@@ -55,7 +47,10 @@
     }
   </ul>
 </section>
-<section id="form" class="flex items-center justify-start flex-wrap p-28">
+<section
+    id="form"
+    class="flex items-center justify-start flex-wrap p-28"
+>
   <form #partnerForm="ngForm" (ngSubmit)="submit(partnerForm.value)">
     <div class="space-y-12">
         
@@ -184,3 +179,6 @@
     </div>
   </form>
 </section>
+<div class="footer">
+    <app-footer />
+</div>

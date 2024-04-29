@@ -1,23 +1,30 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { CdkStepperModule } from '@angular/cdk/stepper';
 
-import { FinishComponent } from '../../Components/finish/finish.component';
+// Import de Composants
+import { HeaderComponent } from '../../Components/header/header.component';
+import { FooterComponent } from '../../Components/footer/footer.component';
+import { PreviewComponent } from '../../Components/preview/preview.component';
+
+// Import de Models
 import { TaskForm } from '../../models/task-form';
-import { UserService } from '../../Auth/service/user.service';
-import { AuthService } from '../../services/Auth/auth.service';
+
+// Import de Services
 import { FormService } from '../../services/Forms/form.service';
-import { user } from '@angular/fire/auth';
+import { AuthService } from '../../services/Auth/auth.service';
 
 @Component({
   selector: 'app-service-list',
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     FormsModule,
-    CdkStepperModule,
-    FinishComponent
+    HeaderComponent,
+    FooterComponent,
+    PreviewComponent
   ],
   templateUrl: './service-list.component.html',
   styleUrl: './service-list.component.css'
@@ -27,7 +34,15 @@ export class ServiceListComponent {
   selectedType!: string;
   selectedObj!: string;
   selectedQlt!: string;
-  item = localStorage.getItem('taskType');
+  description!: string;
+  natureJuridique!: string;
+  service!: string;
+  localisation!: string;
+
+  date = new Date().toLocaleDateString()
+  // let date = await new Date().toLocaleDateString() + ' - ' + new Date().toLocaleTimeString();
+  
+  user$ = this.authService.currentUser$;
 
   types = [
     {
@@ -82,7 +97,9 @@ export class ServiceListComponent {
   ];
 
   constructor(
-    private formService: FormService
+    private router: Router,
+    private formService: FormService,
+    private authService: AuthService
   ) {}
 
   showItemType(e: any) {
@@ -97,7 +114,25 @@ export class ServiceListComponent {
     this.selectedQlt = e.target.value;
   }
 
-  async display(form: TaskForm) {
+  showDescription(e: any) {
+    this.description = e.target.value;
+  }
+  showNatureJuridique(e: any) {
+    this.natureJuridique = e.target.value;
+  }
+
+  showService(e: any) {
+    this.service = e.target.value;
+  }
+
+  showLocalisation(e: any) {
+    this.localisation = e.target.value;
+  }
+
+  async onSubmit(
+      form: TaskForm,
+      userId: string
+    ) {
     if (
       form.type == '' ||
       form.object == '' ||
@@ -110,15 +145,17 @@ export class ServiceListComponent {
       alert("Veuillez remplir tous les champs");
     } else {
 
-      let date = await new Date().toLocaleDateString() + ' - ' + new Date().toLocaleTimeString();
       try {
-        
         form.type = this.selectedType;
         form.object = this.selectedObj;
         form.quality = this.selectedQlt;
-        form.date = date;
+        form.creationDate = this.date;
         console.table(form);
-        this.formService.addForm(form);
+        localStorage.setItem('task', JSON.stringify(form))
+        this.router.navigate(['dohone']);
+        // this.formService.addTask(form, userId).subscribe(() => {
+        //   alert('votre demande a bien été prise en compte');
+        // })
       } catch (error) {
         console.log(error);
       }

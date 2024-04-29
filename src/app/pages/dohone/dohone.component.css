@@ -1,0 +1,108 @@
+.small-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f7f7fc, #e0e0ff);
+}
+.dohone-box {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.dohone-box .items-list,
+.dohone-box .user-details {
+    width: 100%;
+    max-width: 435px;
+    padding: 20px;
+    background: #f7f7fc;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #cdcdff;
+}
+
+.items-list ul li {
+    list-style: none;
+    padding: 10px;
+}
+.items-list ul li h4,
+.user-details .user-info .info h4,
+.user-details .user-info form label {
+    font-size: 15px;
+    font-weight: 600;
+}
+.items-list ul li span,
+.user-details .user-info .info span {
+    font-size: 12px;
+    color: #555;
+}
+.items-list ul li:not(:last-child),
+.user-details .user-info .info {
+    border-bottom: 1px solid #efefef;
+}
+
+.user-details {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    gap: 50px;
+}
+.user-details .user-info {
+    width: 100%;
+}
+.user-details .user-info .info {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+.user-details .user-info form {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+.user-details .user-info form input {
+    width: 100%;
+    padding: 5px;
+    font-size: 13px;
+    outline: none;
+}
+.user-details .user-info form input::placeholder {
+    font-size: 13px;
+}
+
+.user-details button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    padding: 6px 0;
+    font-size: 13px;
+    border-radius: 5px;
+    color: #fff;
+    background: #5f5ff7;
+}
+
+@media screen and (max-width: 900px) {
+    .dohone-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 560px) {
+    .small-container {
+        padding: 20px;
+    }
+}

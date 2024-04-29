@@ -6,7 +6,7 @@
             <ul>
                 @for (link of links; track $index) {
                     <li class="p-2.5 border-b">
-                        <a routerLink="{{ link.path }}">{{ link.name }}</a>
+                        <a routerLink="/{{ link.path }}">{{ link.name }}</a>
                     </li>
                 }
             </ul>

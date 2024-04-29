@@ -1,6 +1,7 @@
 export interface TaskForm {
     username?: string;
     email?: string;
+    userId: string;
     type: string;
     object: string;
     quality: string;
@@ -8,5 +9,5 @@ export interface TaskForm {
     natureJurid: string;
     service: string;
     localisation: string;
-    date: string;
+    creationDate: string;
 }

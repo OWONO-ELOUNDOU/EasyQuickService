@@ -1,23 +1,9 @@
 .hero {
     width: 100%;
-    height: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to bottom, transparent, #b487f770, transparent);
-}
-.hero .hero-image,
-.hero .hero-text {
-    max-width: 500px;
-    width: 100%;
-}
-.hero .hero-image img {
-    width: 100%;
-}
-
-.hero .hero-image span,
-.hero .hero-image .btns2 {
-    display: none;
+    height: 100vh;
+    padding: 5% 8%;
+    background: linear-gradient(to bottom,#444, transparent), url(../../../assets/images/backgrounds/partner.jpeg) center no-repeat;
+    background-size: cover;
 }
 #mission .col1,
 #mission .col2 {
@@ -31,33 +17,33 @@
 }
 
 @media screen and (max-width: 950px) {
+    .hero {
+        width: 100%;
+        padding: 5% 3%;
+    }
+    .small-container p {
+        text-align: center;
+        text-wrap: balance;
+    }
+    .small-container .title {
+        text-align: center;
+        font-size: 35px;
+    }
     section {
-        padding: 25% 20px;
+        padding: 20px;
         justify-content: center;
         margin-bottom: 30px;
-    }
-    .hero .hero-image,
-    .hero .hero-text {
-        width: 100%;
-    }
-    .hero .hero-text p,
-    .hero .hero-text .btns {
-        display: none;
-    }
-    .hero .hero-image span {
-        display: block;
-    }
-    .hero .hero-image .btns2 {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    .hero .hero-image .btns2 a  {
-        width: 100%;
     }
 
     #title {
         font-size: 2rem;
+    }
+}
+@media screen and (max-width: 560px) {
+    #form {
+        margin-bottom: 40px;
+    }
+    .footer {
+        display: none;
     }
 }

@@ -1,65 +1,77 @@
-.flags {
-    width: 300px;
-    margin-left: 80px;
-}
-.flags input {
-    width: 200px;
-    border: 1px solid #555;
-    padding: 7px 20px;
-    border-radius: 30px;
-}
-.flags #list button {
-    border: none;
-    outline: none;
-    background-color: #7952b3;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 30px;
-}
+
 .hero {
     width: 100%;
-    padding: 3% 0;
+    height: 100vh;
+    padding: 5% 8%;
+    background: linear-gradient(to bottom, #000, transparent), url(../../../assets/images/backgrounds/background_1.jpg) center no-repeat;
+    background-size: cover;
+}
+.hero .small-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+.hero .small-container .btn a svg {
+    width: 25px;
+    fill: inherit;
+    stroke: #fff;
+    stroke-width: 25px;
 }
 
-/* service section css */
-#service article {
-    transition: all 0.3s ease-in;
+.jober {
+    margin: 100px 0;
+    padding: 0 6%;
 }
-#service article:hover {
-    border: 1px solid #7952b3;
-    border-radius: 10px;
-    padding: 20px;
+.jober .image {
+    min-width: 200px;
+    max-width: 600px;
+    width: 100%;
+    padding: 10px;
 }
-#service article:hover #info{
-    color: #7952b3;
+.jober .info {
+    max-width: 500px;
+    min-width: 200px;
 }
-
-#comment {
-    margin-top: 10%;
+.jober .info button {
+    width: 35%;
+    padding: 10px 0;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 950px) {
     .hero {
         width: 100%;
-        align-items: center;
-        justify-content: center;
-        padding: 3%;
-        gap: 10px;
+        padding: 5% 3%;
     }
-    .flags {
+    .small-container p {
+        text-align: center;
+        text-wrap: balance;
+    }
+    .small-container .title {
+        text-align: center;
+        font-size: 35px;
+    }
+    .jober {
+        padding: 0 auto;
+        margin: 50px 0;
+        gap: 30px;
+    }
+    .jober .image img {
         width: 100%;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
-    .flags #list datalist {
-        padding: 0 10px;
+    .jober .info {
+        max-width: 600px;
+        width: 100%;
+        padding: 10px;
     }
-    .flags #list form input {
+    .jober .info .title {
+        font-size: xx-large;
+    }
+    .jober .info p {
+        text-wrap: balance;
+    }
+    .jober .info button {
         width: 100%;
     }
 }

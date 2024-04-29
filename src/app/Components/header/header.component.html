@@ -11,7 +11,7 @@
     <ul class="nav-link flex items-center py-2.5" [class.open]="isOpenMenu">
       @for (link of links; track $index) {
         <li class="mr-5">
-          <a [routerLink]="link.path">{{ link.name }}</a>
+          <a routerLink="/{{ link.path }}">{{ link.name }}</a>
         </li>
       }
     </ul>
@@ -19,16 +19,16 @@
     <div class="buttons" [class.open]="isOpenMenu">
       <ng-container *ngIf="user$ | async as user; else loginButton">
         <a
-          routerLink="profile"
+          routerLink="/profile"
           class="login-btn"
         >
-          {{ user.displayName }} <img [src]="user.photoUrl ?? '../../assets/images/avatar.svg'" class="rounded-full ml-4" width="30" height="30">
+          {{ user.displayName }} <img [src]="user.photoURL ?? '../../assets/images/avatar.svg'" class="rounded-full ml-4" width="30" height="30">
         </a>
       </ng-container>
 
       <ng-template #loginButton>
         <a
-          routerLink="login"
+          routerLink="/login"
           class="login-btn"
         >
           connexion <i class="fa-solid fa-arrow-right-to-bracket"></i>
@@ -41,7 +41,7 @@
   @for (mobile of mobiles; track $index) {
     <div class="navlink flex items-center justify-center flex-col gap-y-2" routerLink="{{ mobile.path }}">
       <i class="{{ mobile.iconName }} text-lg text-indigo-600"></i>
-      <!-- <p class="text-sm">{{ mobile.name }}</p> -->
+      <p class="text-sm">{{ mobile.name }}</p>
     </div>
   }
 </div>

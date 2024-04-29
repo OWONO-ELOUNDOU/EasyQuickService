@@ -1,3 +1,4 @@
+<app-sidebar />
 <div class="container mb-8">
     <div
         class="image border-b mb-4"
@@ -30,7 +31,12 @@
     </div>
 
     <ul class="flex items-center flex-wrap gap-4 p-2 rounded-lg my-4">
-        <li class="bg-gray-100"><i class="fa-regular fa-clock"></i> Historique services</li>
+        <li
+            class="bg-gray-100"
+            routerLink="/history"
+        >
+            <i class="fa-regular fa-clock"></i> Historique
+        </li>
         <li class="bg-gray-100"><i class="fa-solid fa-dollar-sign"></i> Transactions</li>
         <li class="bg-gray-100"><i class="fa-regular fa-bell"></i> Notifications</li>
         <li class="bg-gray-100">- item 4</li>

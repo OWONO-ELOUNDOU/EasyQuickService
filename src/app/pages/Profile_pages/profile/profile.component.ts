@@ -1,19 +1,25 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+
+import { SidebarComponent } from '../../../Components/sidebar/sidebar.component';
+
 import { AuthService } from '../../../services/Auth/auth.service';
-import { User } from 'firebase/auth';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    SidebarComponent
+  ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
 
-  user$ = this.authService.currentUser$
+  user$ = this.authService.currentUser$;
 
   constructor(
     private authService: AuthService,

@@ -1,13 +1,26 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+
+// Import de Composants
+import { HeaderComponent } from '../../Components/header/header.component';
+import { FooterComponent } from '../../Components/footer/footer.component';
+
+// Import de Modeles
 import { User } from '../../models/user';
+
+// Import de services
 import { PartnerService } from '../../services/Partner/partner.service';
 
 @Component({
   selector: 'app-partner',
   standalone: true,
-  imports: [RouterModule, FormsModule],
+  imports: [
+    RouterModule,
+    FormsModule,
+    HeaderComponent,
+    FooterComponent
+  ],
   templateUrl: './partner.component.html',
   styleUrl: './partner.component.css'
 })
@@ -63,6 +76,11 @@ export class PartnerComponent {
 
   submit(partner: User) {
     console.table(partner);
-    this.partnerService.addPartner(partner)
+    this.partnerService.addPartner(partner).then(() => {
+      alert('Vous serez redirigé vers une autre page');
+      this.router.navigate(['/profile']);
+    }).catch((error) => {
+      alert(error);
+    })
   }
 }

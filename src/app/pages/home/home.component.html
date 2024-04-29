@@ -1,38 +1,55 @@
-<!-- <div class="flags">
-  <div id="list" class="flex items-center p-3">
-    <label
-      for="flag"
-      class="text-2xl font-bold mr-8"
-    >
-      Pays
-    </label>
-    <form
-      #flagForm="ngForm"
-      class="flex items-center justify-center gap-2"
-      (ngSubmit)="onSubmit(flagForm.value)"
-    >
-      <input
-        list="flags"
-        name="flag"
-        id="flag"
-        class="flex items-center justify-center gap-2 border w-full"
-        ngModel
-      />
-      <button type="submit">OK</button>
-    </form>
-
-    <datalist id="flags">
-        @for (flag of flags; track $index) {
-          <option
-            [value]="flag.label"
-          >
-          </option>
-        }
-    </datalist>
+<app-header />
+<section class="hero flex items-center justify-center">
+  <div class="small-container flex items-center justify-center flex-col">
+    <h1 class="title text-5xl text-white font-bold mb-8">Bienvenue sur EasyQuickService</h1>
+    <p class="text-white text-md mb-8">
+      La plateforme de service numérique qui vous permet d'effectuer vos différentes activités sans vous déplacez partout au Cameroun.
+    </p>
+    <div class="btn flex items-center justify-center flex-col gap-4 text-white">
+      <a href="home#prestations" class="text-sm border py-3 px-4">Commencer votre visite</a>
+      <a href="home#prestations">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
+        </svg>
+      </a>
+    </div>
   </div>
-</div> -->
-<section class="hero flex-col">
-  <div class="image">
+  <!-- <div class="image">
       <app-image-slider [slides]="slides"></app-image-slider>
+  </div> -->
+</section>
+<section id="prestations" class="jober w-full flex justify-start flex-wrap gap-4">
+  <div class="image">
+    <img src="../../../assets/images/backgrounds/easy_asker.jpg" alt="Easy-Jober" width="600" height="600" fetchpriority="high">
+  </div>
+  <div class="info">
+    <span class="subtitle text-sm italic text-indigo-600">Easy-Asker</span>
+    <h2 class="title text-5xl font-bold my-4">Sans vous déplacer</h2>
+    <p class="text-gray-500 mb-12">Cherchez, obtenez, vérifiez, suivez: un dossier, une information, un RDV, un colis,... dans le pays séléctionné sans vous déplacer.</p>
+    <button
+      routerLink="/service-list"
+      routerLinkActive="/service-list"
+      class="bg-indigo-600 text-white text-sm"
+    >
+      Demarrer
+    </button>
   </div>
 </section>
+<section class="jober w-full flex justify-start flex-wrap gap-4">
+  <div class="image">
+    <img src="../../../assets/images/backgrounds/partner.jpeg" alt="Easy-Jober" width="600" height="600" fetchpriority="high">
+  </div>
+  <div class="info">
+    <span class="subtitle text-sm italic text-indigo-600">Easy-Jober</span>
+    <h2 class="title text-5xl font-bold my-4">Devenir Partenaire</h2>
+    <p class="text-gray-500 mb-12">Devenez Partenaire & Augmentez vos revenus avec nos missions en free-lance dans votre pays</p>
+    <button
+      routerLink="/partner"
+      routerLinkActive="/partner"
+      class="bg-indigo-600 text-white text-sm"
+    >
+      Demarrer
+    </button>
+  </div>
+</section>
+<app-footer />

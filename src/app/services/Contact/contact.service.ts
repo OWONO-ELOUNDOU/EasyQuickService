@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection } from '@angular/fire/firestore';
 import { ContactForm } from '../../models/contact-form';
+import { Database, ref, set } from '@angular/fire/database';
+import { Auth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,18 @@ import { ContactForm } from '../../models/contact-form';
 export class ContactService {
 
   constructor(
-    private firestore: Firestore
+    private auth: Auth,
+    private database: Database
   ) { }
 
+  userId = this.auth.currentUser?.uid;
+
   addMessage(message: ContactForm) {
-    const messageCollection = collection(this.firestore, 'test');
-    addDoc(messageCollection, message);
+    return set(ref(this.database, `Messages/${this.userId}/feedBacks/` + message.content), {
+      username: message.username,
+      email: message.email,
+      content: message.content
+    })
   }
+
 }

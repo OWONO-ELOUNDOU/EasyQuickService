@@ -18,10 +18,11 @@ export class HeaderComponent {
   links = navLinks;
   mobiles = mobileLinks;
 
-  user$ = this.usersService.currentUserProfile$;
+  user$ = this.authService.currentUser$;
 
   constructor(
-    private usersService: UserService
+    private usersService: UserService,
+    private authService: AuthService
   ) {}
 
   toggleMenu() {
