@@ -19,7 +19,7 @@
     <div class="buttons" [class.open]="isOpenMenu">
       <ng-container *ngIf="user$ | async as user; else loginButton">
         <a
-          routerLink="/profile"
+          routerLink="/user"
           class="login-btn"
         >
           {{ user.displayName }} <img [src]="user.photoURL ?? '../../assets/images/avatar.svg'" class="rounded-full ml-4" width="30" height="30">
@@ -39,7 +39,7 @@
 
 <div class="mobile-nav flex items-center justify-between gap-x-4 px-8 py-3 border-t bg-white">
   @for (mobile of mobiles; track $index) {
-    <div class="navlink flex items-center justify-center flex-col gap-y-2" routerLink="{{ mobile.path }}">
+    <div class="navlink flex items-center justify-center flex-col gap-y-2" routerLink="/{{ mobile.path }}">
       <i class="{{ mobile.iconName }} text-lg text-indigo-600"></i>
       <p class="text-sm">{{ mobile.name }}</p>
     </div>

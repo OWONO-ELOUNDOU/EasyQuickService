@@ -28,18 +28,22 @@ export class PartnerComponent {
   missions = [
     {
       name: 'Suivre',
+      image: 'assets/images/icons/suivre.png',
       description: 'une information, un dossier, un colis, un RDV, une opération, partout au Cameroun'
     },
     {
       name: 'Vérifier',
+      image: 'assets/images/icons/verifier.png',
       description: 'une information, un dossier, un colis, un RDV, une opération, partout au Cameroun'
     },
     {
       name: 'Chercher',
+      image: 'assets/images/icons/chercher.png',
       description: 'une information, un dossier, un colis, un RDV, une opération, partout au Cameroun'
     },
     {
       name: 'Récupérer',
+      image: 'assets/images/icons/recuperer.png',
       description: 'une information, un dossier, un colis, un RDV, une opération, partout au Cameroun'
     },
   ];

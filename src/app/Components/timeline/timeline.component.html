@@ -1,0 +1,33 @@
+<div class="timeline">
+    @if (history.length == 0) {
+        <h3>Aucun service trouvé!</h3>
+    }
+    @else {
+        @for (item of history; track $index) {
+            <div class="timeline-event">
+                <div class="timeline-point-track-container">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-track"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="header">
+                        <span>
+                            {{ item.type ?? item.clientName }}
+                        </span>
+                        <span class="timeline-date">
+                            {{ item.creationDate ?? item.date }}
+                        </span>
+                    </div>
+                    <div class="description">
+                        <p>
+                            {{ item.description ?? item.phoneNumber }}
+                        </p>
+                        <span class="text-sm text-gray-400">
+                            {{ item.price ? item.price : '' }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

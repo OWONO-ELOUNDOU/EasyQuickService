@@ -10,6 +10,7 @@ import { ContactForm } from '../../models/contact-form';
 
 // Import de service
 import { ContactService } from '../../services/Contact/contact.service';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
@@ -30,8 +31,14 @@ export class ContactComponent {
   ) {}
 
   onSubmit(contact: ContactForm) {
-    this.contactService.addMessage(contact).then(() => {
-      alert('Votre message a bien été pris en compte!')
+    // this.contactService.addMessage(contact).then(() => {
+    //   alert('Votre message a bien été pris en compte!')
+    // })
+    this.contactService.saveMessage(contact).subscribe((res) => {
+      console.log(res);
+      alert('Votre message a bien été pris en compte');
+    }, (err) => {
+      console.log(err)
     })
   }
 

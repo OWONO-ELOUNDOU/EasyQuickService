@@ -33,7 +33,7 @@ export class ProfileService {
   }
 
   getTasks() {
-    return this.http.get<{[key : string]: TaskForm}>(`${this.endPoint}/Tasks/${this.userId}/forms.json`)
+    return this.http.get<{[key : string]: TaskForm}>(`${this.endPoint}/Tasks/forms.json`)
   }
 
     

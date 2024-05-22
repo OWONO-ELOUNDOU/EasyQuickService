@@ -1,18 +1,22 @@
-<div class="history">
-    <h1 class="text-3xl font-bold mb-10">Historique de vos commandes</h1>
-    <div class="history-box">
-        @for (task of myTasks; track $index) {
-            <div class="box">
-                <div class="box-header flex items-center justify-between border-b py-2">
-                    <p class="bg-indigo-600 text-white text-sm px-2 py-1 rounded-3xl">Vous</p>
-                    <span class="text-sm text-gray-400">{{ task.creationDate }}</span>
+<app-sidebar [pageTitle]="title" />
+<div class="history-container">
+    <div class="history">
+        <h1 class="text-3xl font-bold mb-10">Historique des services</h1>
+        <app-timeline [history]="myTasks" />
+        <!-- <div class="history-box">
+            @for (task of myTasks; track $index) {
+                <div class="box">
+                    <div class="box-header flex items-center justify-between border-b py-2">
+                        <p class="bg-indigo-600 text-white text-sm px-2 py-1 rounded-3xl">Vous</p>
+                        <span class="text-sm text-gray-400">{{ task.creationDate }}</span>
+                    </div>
+                    <div class="box-body mt-4">
+                        <p class="text-sm">
+                            {{ task.description }}
+                        </p>
+                    </div>
                 </div>
-                <div class="box-body mt-4">
-                    <p class="text-sm">
-                        {{ task.description }}
-                    </p>
-                </div>
-            </div>
-        }
+            }
+        </div> -->
     </div>
 </div>

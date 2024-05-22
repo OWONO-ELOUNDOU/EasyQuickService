@@ -1,4 +1,159 @@
-<div class="container px-28 mb-8">
+<app-sidebar [pageTitle]="title" />
+<div class="content">
+    <h1 class="text-3xl font-medium mb-8">Modifier le profile</h1>
+    <div class="user-image">
+        <label class="text-sm font-bold">Avatar</label>
+        <div
+            class="row flex items-start justify-start flex-wrap gap-8 mt-2"
+            *ngIf="user$ | async as user"
+        >
+            <div class="profile-pic">
+                <img
+                    [src]="user.photoURL ?? '../../../../assets/images/avatar.svg'"
+                    alt="user profile picture"
+                    class="rounded-full"
+                    width="130"
+                    height="130"
+                    fetchpriority="high"
+                >
+            </div>
+            <div class="col-2">
+                <button
+                    class="border py-3 px-4 rounded-md mb-2"
+                    (click)="inputField.click()"
+                >
+                    Uploader une nouvelle image
+                </button>
+                <p class="text-gray-400">
+                    Cette image sera utilisée comme photo de profile de l'utilisateur
+                </p>
+                <input
+                    type="file"
+                    hidden
+                    #inputField
+                    (change)="uploadImage($event, user)"
+                >
+            </div>
+        </div>
+    </div>
+    <div class="user-info mt-12">
+        <form
+            class="flex items-start justify-start flex-col gap-8"
+        >
+            <div class="input-box">
+                <div class="input-field flex items-start flex-col gap-2">
+                    <label
+                        class="text-sm font-bold"
+                        for="firstname"
+                    >
+                        Nom
+                    </label>
+                    <input
+                        type="text"
+                        name="firstname"
+                        id="firstname"
+                        class="border w-full py-2 pl-2 rounded-md"
+                    >
+                </div>
+                <div class="input-field flex items-start flex-col gap-2">
+                    <label
+                        class="text-sm font-bold"
+                        for="lastname"
+                    >
+                        Prénom
+                    </label>
+                    <input
+                        type="text"
+                        name="lastname"
+                        id="lastname"
+                        class="border w-full py-2 pl-2 rounded-md"
+                    >
+                </div>
+                <div class="input-field flex items-start flex-col gap-2">
+                    <label
+                        class="text-sm font-bold"
+                        for="email"
+                    >
+                        Adresse Mail
+                    </label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        class="border w-full py-2 pl-2 rounded-md"
+                    >
+                </div>
+                <div class="input-field flex items-start flex-col gap-2">
+                    <label
+                        class="text-sm font-bold"
+                        for="phone"
+                    >
+                        Téléphone
+                    </label>
+                    <input
+                        type="text"
+                        name="phone"
+                        id="phone"
+                        class="border w-full py-2 pl-2 rounded-md"
+                    >
+                </div>
+            </div>
+
+            <div class="input-box">
+                <div class="input-field flex items-start flex-col gap-2">
+                    <label
+                        class="text-sm font-bold"
+                        for="country"
+                    >
+                        Pays
+                    </label>
+                    <input
+                        type="text"
+                        name="country"
+                        id="country"
+                        class="border w-full py-2 pl-2 rounded-md"
+                    >
+                </div>
+                <div class="input-field flex items-start flex-col gap-2">
+                    <label
+                        class="text-sm font-bold"
+                        for="region"
+                    >
+                        Région
+                    </label>
+                    <input
+                        type="text"
+                        name="region"
+                        id="region"
+                        class="border w-full py-2 pl-2 rounded-md"
+                    >
+                </div>
+                <div class="input-field flex items-start flex-col gap-2">
+                    <label
+                        class="text-sm font-bold"
+                        for="twon"
+                    >
+                        Localisation / ville
+                    </label>
+                    <input
+                        type="text"
+                        name="twon"
+                        id="twon"
+                        class="border w-full py-2 pl-2 rounded-md"
+                    >
+                </div>
+            </div>
+
+            <button
+                type="submit"
+                class="text-sm w-full rounded-md py-3"
+            >
+                Modifier le profile
+            </button>
+        </form>
+    </div>
+</div>
+<!-- <div class="small-container">
     <div
         class="image border-b mb-4"
         *ngIf="user$ | async as user"
@@ -28,14 +183,14 @@
                 <div class="field">
                     <h3 class="mb-2">Nom utilisateur</h3>
                     <input type="text" class="py-2" placeholder="{{ user.displayName }}">
-                    <!-- <span class="text-gray-400">{{ user.email }}</span> -->
+                    <span class="text-gray-400">{{ user.email }}</span>
                 </div>
                 <div class="field">
                     <h3 class="mb-2">Email</h3>
                     <input type="text" class="py-2" placeholder="{{ user.email }}">
-                    <!-- <span class="text-gray-400">{{ user.email }}</span> -->
+                    <span class="text-gray-400">{{ user.email }}</span>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> -->

@@ -10,4 +10,5 @@ export interface TaskForm {
     service: string;
     localisation: string;
     creationDate: string;
+    status?: string;
 }

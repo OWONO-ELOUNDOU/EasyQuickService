@@ -1,26 +1,32 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { concatMap } from 'rxjs';
+import { HotToastService } from '@ngneat/hot-toast';
+
 import { User } from 'firebase/auth';
+
 import { AuthService } from '../../../services/Auth/auth.service';
 import { ProfileService } from '../../../services/Profile/profile.service';
-import { HotToastService } from '@ngneat/hot-toast';
-import { concatMap } from 'rxjs';
-import { UserService } from '../../../Auth/service/user.service';
+
+import { SidebarComponent } from '../../../Components/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-user-info',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    SidebarComponent
+  ],
   templateUrl: './user-info.component.html',
   styleUrl: './user-info.component.css'
 })
 export class UserInfoComponent {
-  user$ = this.authService.currentUser$
+  user$ = this.authService.currentUser$;
+  title = 'Account';
 
   constructor(
     private authService: AuthService,
     private profileService: ProfileService,
-    private usersService: UserService,
     private toast: HotToastService
   ) {}
 

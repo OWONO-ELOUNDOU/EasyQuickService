@@ -17,13 +17,17 @@ export class FormService {
     private database: Database
   ) { }
 
+  createOrderId() {
+    return  Math.random().toString(36).substr(2, 9);
+  }
+
   addTask(task: TaskForm) {
     return this.authService.currentUser$.pipe(
       switchMap(user => {
         if (!user?.uid) {
           return of(null);
         } else {
-          return set(ref(this.database, `Tasks/forms/` + task.type), {
+          return set(ref(this.database, `Tasks/forms/` + this.createOrderId()), {
             username: user.displayName,
             email: user.email,
             userId: user.uid,
@@ -40,9 +44,4 @@ export class FormService {
       })
     );
   }
-
-  // addForm(form: TaskForm, uid: string): Observable<any> {
-  //   const ref = doc(this.firestore, 'Services', uid);
-  //   return from(setDoc(ref, form));
-  // }
 }

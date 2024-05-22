@@ -1,6 +1,35 @@
 <app-header />
-<section class="hero flex items-center justify-center">
-    <div class="small-container flex items-center justify-center flex-col">
+<section class="hero flex items-start justify-between flex-wrap">
+    <div class="col-1">
+        <h1 class="text-5xl font-bold mb-12">
+            Devenez Partenaire<br>& 
+        </h1>
+        <p class="text-md mb-12">
+            Augmentezvos revenus avec les missions en free-lance dans votre pays
+        </p>
+        <div class="cta-btn flex items-center justify-start gap-4">
+            <a
+                href="partner#form"
+                class="text-indigo-900 text-xs font-medium rounded-full px-6 py-3 border-2 border-indigo-600"
+            >
+                Créer un compte
+            </a>
+            <a
+                routerLink="/login"
+                class="text-white text-xs font-medium rounded-full px-7 py-3 bg-indigo-600"
+            >
+                Se connecter
+            </a>
+        </div>
+    </div>
+    <div class="img">
+        <img
+            src="../../../assets/images/backgrounds/partner_2.png"
+            alt="Easy-quick-service-partner-page-image"
+            width="600"
+        >
+    </div>
+    <!-- <div class="small-container flex items-center justify-center flex-col">
       <h1 class="title text-5xl text-white font-bold mb-8">Devenez partenaire avec Easyquickservic</h1>
       <p class="text-white text-md mb-8">
         Devenez Partenaire & Augmentez vos revenus avec les missions en free-lance dans votre pays
@@ -8,33 +37,43 @@
       <div class="btn flex items-center justify-center gap-4 text-white">
         <a
             href="partner#form"
-            class="text-white text-xs font-medium px-7 py-3 border-2"
+            class="text-white text-xs font-medium rounded-full px-6 py-3 border-2"
         >
             Créer un compte
         </a>
         <a
             routerLink="/login"
-            class="text-black text-xs font-medium px-7 py-3 bg-white"
+            class="text-black text-xs font-medium rounded-full px-7 py-3 bg-white"
         >
             Se connecter
         </a>
       </div>
-    </div>
+    </div> -->
 </section>
 
 <section
     id="mission"
-    class="flex items-center justify-center p-8"
+    class="px-8 py-20"
 >
-    <div class="col1">
-        <h1 class="text-5xl font-bold mb-8">Vos Missions</h1>
-        <ul>
-            @for (mission of missions; track $index) {
-                <li class="w-full text-sm p-3 text-gray-600 border rounded-md">
-                    <strong>{{ mission.name }}</strong>, {{ mission.description }}
-                </li>
-            }
-        </ul>
+    <h1 class="text-4xl font-bold mb-8">VOS MISSIONS</h1>
+    <div class="missions mt-12">
+        @for (item of missions; track $index) {
+            <div class="mission flex items-center justify-center">
+                <img
+                    [src]="item.image"
+                    alt="Easy-quick-service-mission-image"
+                    width="150"
+                >
+                <div class="mission-info">
+                    <h4 class="mission-title text-2xl font-medium mb-4">
+                        {{ item.name }}
+                    </h4>
+                    <p class="mission-description text-sm">
+                        {{ item.description }}
+                    </p>
+                </div>
+            </div>
+        }
     </div>
 </section>
 <section class="banner py-28 px-12 bg-gray-100">

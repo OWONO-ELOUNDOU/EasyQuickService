@@ -1,0 +1,182 @@
+.navbar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 290px);
+    padding: 15px 3%;
+    margin-top: 10px;
+    position: fixed;
+    top: 0;
+    left: 270px;
+    background: #fff;
+    box-shadow: 0px 0px 5px #d5d5ff;
+    border-radius: 10px;
+    z-index: 1;
+}
+.navbar-top .page-title h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+.navbar-top .page-title h3 span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+}
+.navbar-top .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.navbar-top .button svg {
+    width: 20px;
+    cursor: pointer;
+    display: none;
+}
+.sidebar-container {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 250px;
+    height: calc(100vh - 20px);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ebebfc;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #232f3e;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+}
+.main {
+    width: 100%;
+}
+.sidebar-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f7f7fc;
+    cursor: pointer;
+}
+.sidebar-header img {
+    border-radius: 50%;
+}
+.sidebar-header .close-btn {
+    display: none;
+}
+.sidebar-header .close-btn svg {
+    width: 20px;
+    stroke: #fff;
+    fill: #fff;
+}
+.sidebar-header .user-info span {
+    font-size: 10px;
+    color: #fff;
+}
+
+.sidebar-content {
+    width: 100%;
+}
+.sidebar-content .link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 30px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+.sidebar-content .link:not(:last-child) {
+    margin-bottom: 15px;
+}
+.sidebar-content .link:hover {
+    background-color: #38424f;
+    border-radius: 7px;
+}
+.sidebar-content .link svg {
+    width: 20px;
+    fill: #fff;
+    stroke: #fff;
+}
+.sidebar-content .link p {
+    font-size: 15px;
+    color: #fff;
+}
+
+.sidebar-footer {
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    gap: 20px;
+    border-top: 1px solid #efefef;
+}
+.sidebar-footer button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 7px;
+    background-color: #fff;
+}
+.sidebar-footer button p {
+    color: #000;
+}
+.sidebar-footer button svg {
+    width: 13px;
+    fill: #000;
+    stroke: #000;
+}
+
+.sidebar-footer .user {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+.sidebar-footer .user img {
+    border-radius: 50%;
+}
+.sidebar-footer .user .user-info span {
+    font-size: 10px;
+    color: #fff;
+}
+
+
+@media screen and (max-width: 700px) {
+    .navbar-top {
+        width: 100%;
+        padding: 15px 20px;
+        margin: 0 auto;
+        left: 0;
+        border-radius: 0;
+        box-shadow: none;
+        border-bottom: 1px solid #efefef;
+    }
+    .navbar-top .button .user-img {
+        display: none;
+    }
+    .navbar-top .button svg {
+        display: block;
+    }
+    .sidebar-container {
+        display: none;
+    }
+    .sidebar-header .close-btn {
+        display: block;
+    }
+}

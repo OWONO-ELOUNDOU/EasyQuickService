@@ -14,6 +14,7 @@ import { TaskForm } from '../../models/task-form';
 // Import de Services
 import { FormService } from '../../services/Forms/form.service';
 import { AuthService } from '../../services/Auth/auth.service';
+import { DohoneService } from '../../services/Dohone/dohone.service';
 
 @Component({
   selector: 'app-service-list',
@@ -41,6 +42,8 @@ export class ServiceListComponent {
 
   date = new Date().toLocaleDateString()
   // let date = await new Date().toLocaleDateString() + ' - ' + new Date().toLocaleTimeString();
+
+  count = 0;
   
   user$ = this.authService.currentUser$;
 
@@ -99,7 +102,8 @@ export class ServiceListComponent {
   constructor(
     private router: Router,
     private formService: FormService,
-    private authService: AuthService
+    private authService: AuthService,
+    private dohoneService: DohoneService
   ) {}
 
   showItemType(e: any) {
@@ -129,6 +133,12 @@ export class ServiceListComponent {
     this.localisation = e.target.value;
   }
 
+  addToCart(form: TaskForm) {
+    this.dohoneService.addToCart(form);
+
+    this.count = this.dohoneService.getCount();
+  }
+
   async onSubmit(
       form: TaskForm,
       userId: string
@@ -150,12 +160,11 @@ export class ServiceListComponent {
         form.object = this.selectedObj;
         form.quality = this.selectedQlt;
         form.creationDate = this.date;
-        console.table(form);
-        localStorage.setItem('task', JSON.stringify(form))
-        this.router.navigate(['dohone']);
-        // this.formService.addTask(form, userId).subscribe(() => {
-        //   alert('votre demande a bien été prise en compte');
-        // })
+        this.formService.addTask(form).subscribe(() => {
+          alert('votre demande a bien été prise en compte');
+          this.addToCart(form);
+          this.router.navigate(['dohone']);
+        })
       } catch (error) {
         console.log(error);
       }

@@ -1,6 +1,7 @@
 .container {
-    width: 100%;
-    padding: 3% 8%;
+    width: calc(100% - 300px);
+    margin-left: 320px;
+    padding: 20px 3%;
 }
 .container ul {
     width: 100%;

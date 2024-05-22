@@ -4,36 +4,40 @@ import { ProfileUser } from '../model/profile-user';
 import { Observable, from, of, switchMap } from 'rxjs';
 import { AuthService } from '../../services/Auth/auth.service';
 import { Database, set, ref } from '@angular/fire/database';
+import { onValue } from 'firebase/database';
+import { Auth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  // get currentUserProfile$(): Observable<ProfileUser | null> {
+  userData: any;
+
+  // get currentUserProfile(): Observable<ProfileUser | null> {
   //   return this.authService.currentUser$.pipe(
   //     switchMap(user => {
-        
   //       if(!user?.uid) {
   //         return of(null);
   //       } else {
-  //         const ref = doc(this.firestore, 'users', user?.uid);
-  //         return docData(ref) as Observable<ProfileUser>;
+  //         const userRef = ref(this.database, 'Users/' + user.uid);
+  //         onValue(userRef, (snapshot) => {
+  //           const data = snapshot.val()
+  //           this.userData = data;
+  //           console.log(data);
+  //         })
+  //         return this.userData as Observable<ProfileUser>
   //       }
-
   //     })
   //   )
   // }
 
   constructor(
+    private auth: Auth,
     private database: Database,
     private authService: AuthService
   ) { }
-
-  // addUser(user: ProfileUser): Observable<any> {
-  //   const ref = doc(this.firestore, 'Users', user.uid);
-  //   return from(setDoc(ref, user));
-  // }
+  
 
   addUser(user: ProfileUser) {
     return set(ref(this.database, 'Users/' + user.uid), {

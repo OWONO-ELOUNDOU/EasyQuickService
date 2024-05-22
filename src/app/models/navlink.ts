@@ -45,6 +45,6 @@ export const mobileLinks = [
     {
         iconName: "fa-regular fa-user",
         name: 'profile',
-        path: 'profile'
+        path: 'user'
     },
 ]

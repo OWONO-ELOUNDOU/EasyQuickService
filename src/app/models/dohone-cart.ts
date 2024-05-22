@@ -1,6 +1,6 @@
 import { TaskForm } from "./task-form";
 
 export interface DohoneCart {
-    item: TaskForm,
+    service: TaskForm,
     price: string
 }

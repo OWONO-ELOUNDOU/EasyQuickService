@@ -1,40 +1,76 @@
 <div class="small-container">
     <div class="dohone-box">
         <div class="items-list">
-            <ul>
-                <li>
-                    <h4>Item 1</h4>
-                    <span>description</span>
-                </li>
-                <li>
-                    <h4>Item 2</h4>
-                    <span>description</span>
-                </li>
-                <li>
-                    <h4>Item 3</h4>
-                    <span>description</span>
-                </li>
-                <li>
-                    <h4>Item 4</h4>
-                    <span>description</span>
-                </li>
-            </ul>
+            @if (tasks.length < 0) {
+                <h4>Aucun élément dans le panier</h4>
+            }
+            @else {
+                @for (task of tasks; track $index) {
+                    <div class="item">
+                        <div class="item-header">
+                            <h4>{{ task.type }}</h4>
+                            <span>{{ price | currency : 'XAF' }}</span>
+                        </div>
+                        <div class="item-body">
+                            <p>{{ task.description }}</p>
+                        </div>
+                    </div>
+                }
+            }
         </div>
         <div class="user-details">
             <div class="user-info" *ngIf="user$ | async as user">
-                <div class="info">
-                    <img [src]="user.photoURL ?? '../../../assets/images/avatar.svg'" width="50px" height="50px" alt="">
-                    <div class="address">
+                <div
+                    class="info"
+                >
+                    <img
+                        [src]="user.photoURL ? user.photoURL : '../../../assets/images/avatar.svg'"
+                        width="50px"
+                        height="50px"
+                        alt="user-profile-picture"
+                    >
+                    <!-- <div class="address">
                         <h4>{{ user.displayName }}</h4>
                         <span>{{ user.email }}</span>
-                    </div>
+                    </div> -->
                 </div>
-                <form action="">
-                    <label for="phone">user phone number</label>
-                    <input type="text" id="phone" placeholder="your phone number (OM / MOMO)">
+                <form
+                    [formGroup]="checkoutForm"
+                    (ngSubmit)="onSubmit()"
+                >
+                    <div class="input-field">
+                        <label for="username">Nom complet</label>
+                        <input
+                            id="username"
+                            type="text"
+                            formControlName="rN"
+                            placeholder="votre nom complet"
+                            required
+                        >
+                    </div>
+                    <div class="input-field">
+                        <label for="email">Adresse mail</label>
+                        <input
+                            id="email"
+                            type="email"
+                            formControlName="rE"
+                            placeholder="votre adresse email"
+                            required
+                        >
+                    </div>
+                    <div class="input-field">
+                        <label for="phone">Numéro de téléphone</label>
+                        <input
+                            id="phone"
+                            type="text"
+                            formControlName="rT"
+                            placeholder="your phone number (OM / MOMO)"
+                            required
+                        >
+                    </div>
+                    <button type="submit">Purchase button<span>{{ price | currency : '2-1-1' : 'XAF' }}</span></button>
                 </form>
             </div>
-            <button>Purchase button<span>3000 XAF</span></button>
         </div>
     </div>
 </div>

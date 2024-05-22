@@ -1,0 +1,76 @@
+.content {
+    width: calc(100% - 270px);
+    margin-left: 270px;
+    padding: 7% 3% 2% 3%;
+}
+.content .user-image .row .col-2 {
+    max-width: 300px;
+    min-width: 250px;
+    width: 100%;
+}
+.content .user-image .row .col-2 button {
+    font-size: 14px;
+}
+.content .user-image .row .col-2 p {
+    font-size: 13px;
+    text-wrap: balance;
+}
+
+.content .user-info {
+    max-width: 600px;
+    min-width: 250px;
+    width: 100%;
+}
+.content .user-info form {
+    width: 100%;
+}
+.content .user-info form .input-box{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.content .user-info form .input-field {
+    width: 48%;
+}
+.content .user-info form .input-field input {
+    background-color: #f7f7fc;
+    outline: none;
+}
+
+.content .user-info form button {
+    background-color: #5f5ff7;
+    color: #fff;
+}
+.small-container {
+    width: calc(100% - 300px);
+    margin-left: 310px;
+    padding: 20px 3%;
+}
+
+
+@media screen and (max-width: 560px) {
+    .content {
+        width: 100%;
+        padding: 15% 3% 3% 3%;
+        margin-left: 0;
+    }
+    .content .user-image .row {
+        align-items: center;
+        justify-content: center;
+    }
+    .content .user-image .row .col-2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .content .user-image .row .col-2 p {
+        text-align: center;
+    }
+    .content .user-info form .input-field {
+        width: 100%;
+    }
+}

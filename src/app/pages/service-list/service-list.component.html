@@ -2,7 +2,7 @@
 <section id="form" class="forms w-full p-12 flex items-center justify-center flex-col gap-12">
 
     <ng-container *ngIf="user$ | async as user; else messageBox">
-        <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm.value, user.uid)" class="w-full p-3">
+        <form #taskForm="ngForm" class="w-full p-3">
             <!-- <div class="user-form">
                 <div class="section">
                     <h3>Utilisateur</h3>
@@ -193,7 +193,8 @@
                 </div>
     
                 <div class="button">
-                    <button type="submit" >Continuer</button>
+                    <button type="submit" (click)="onSubmit(taskForm.value, user.uid)" >Continuer</button>
+                    <button (click)="addToCart(taskForm.value)" >Ajouter au panier ({{ count ? count : '0' }}) </button>
                 </div>
             </div>
 
