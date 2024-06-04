@@ -3,35 +3,6 @@
 >
     <form #profileForm="ngForm" (ngSubmit)="saveProfile(profileForm.value)" >
         <div class="space-y-12">
-            <div class="border-b border-gray-900/10 pb-12">
-                <h2 class="text-base font-semibold leading-7 text-gray-900">Profile</h2>
-                <p class="mt-1 text-sm leading-6 text-gray-600">
-                    Ces informations serviront dans le cadre des livraisons de colis ou toutes autres activités nécessitant votre identification.
-                </p>
-    
-                <div
-                    class="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
-                    *ngIf="user$ | async as user"
-                >
-    
-                    <div class="col-span-full">
-                        <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover photo</label>
-                        <div class="mt-2 flex justify-center rounded-lg px-6 py-10 text-center">
-                            <div class="profile-img">
-                                <img
-                                    width="120"
-                                    height="120"
-                                    [src]="user.photoURL ?? '../../assets/images/favicon.webp'"
-                                    alt=""
-                                    class="border rounded-md mb-4 p-2"
-                                >
-                                <button class="rounded-full text-sm text-white bg-indigo-600 py-2 px-3" (click)="inputField.click()">Upload Image</button>
-                            </div>
-                            <input type="file" hidden (change)="uploadImage($event, user)" #inputField />
-                        </div>
-                    </div>
-                </div>
-            </div>
     
             <div class="border-b border-gray-900/10 pb-12">
                 <h2 class="text-base font-semibold leading-7 text-gray-900">Information Personnelle</h2>
@@ -103,7 +74,7 @@
                         </div>
                     </div>
     
-                    <div class="sm:col-span-3">
+                    <!-- <div class="sm:col-span-3">
                         <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Pays</label>
                         <div class="mt-2">
                             <input
@@ -114,7 +85,7 @@
                                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"                                
                             >
                         </div>
-                    </div>
+                    </div> -->
     
                     <div class="col-span-full">
                         <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Adresse-rue / Quartier</label>

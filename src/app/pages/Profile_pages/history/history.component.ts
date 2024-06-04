@@ -7,6 +7,7 @@ import { ProfileService } from '../../../services/Profile/profile.service';
 
 import { TimelineComponent } from '../../../Components/timeline/timeline.component';
 import { SidebarComponent } from '../../../Components/sidebar/sidebar.component';
+import { FormService } from '../../../services/Forms/form.service';
 
 @Component({
   selector: 'app-history',
@@ -20,20 +21,17 @@ import { SidebarComponent } from '../../../Components/sidebar/sidebar.component'
 })
 export class HistoryComponent implements OnInit {
 
-  // myTasks$ = this.profileService.myTask$;
   today = new Date().toLocaleDateString();
-  myTasks: TaskForm[] = [];
+  Tasks: TaskForm[] = [];
   title = 'Historique';
 
   events!: any[];
 
   constructor(
-    private profileService: ProfileService,
-    private userService: UserService
+    private formService: FormService
   ) {}
 
   ngOnInit(): void {
-    this.displayTasks();
     this.events = [
       {
         content: 'Ordered',
@@ -52,22 +50,6 @@ export class HistoryComponent implements OnInit {
         content: 'Delivered'
       }
     ]
-  }
-
-  private displayTasks() {
-    this.profileService.getTasks().pipe(map((res) => {
-      const tasks = [];
-      for(const key in res) {
-        if(res.hasOwnProperty(key)){
-          tasks.push({ ...res[key], id: key })
-        }
-      }
-      return tasks;
-    })).subscribe((tasks) => {
-      console.log(tasks);
-      this.myTasks = tasks;
-      console.log(this.myTasks.length);
-    })
   }
 
 }

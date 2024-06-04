@@ -14,16 +14,16 @@ export class PartnerService {
   ) { }
 
   addPartner(partner: User) {
-    return set(ref(this.database, 'Partner/' + partner.email), {
+    return set(ref(this.database, 'Partners/' + partner.firstName), {
       firstName: partner.firstName,
       lastName: partner.lastName,
       email: partner.email,
       password: partner.password,
       phone: partner.phone,
-      address: partner.street,
+      activities: partner.activities,
       twon: partner.twon,
-      country: partner.country,
-      terms: 'I agree to the conditions and policy'
+      region: partner.region,
+      terms: true
     })
   }
 

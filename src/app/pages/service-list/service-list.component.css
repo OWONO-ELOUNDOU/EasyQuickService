@@ -146,30 +146,25 @@
     font-size: larger;
     font-weight: 600;
 }
-.header svg {
+.header svg,
+.btns button svg {
     width: 15px;
     fill: #c3c3c3;
 }
-.form-header .btns {
-    display: flex;
+
+.btns {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
+    gap: 15px;
 }
 .form-header .btns button {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
 }
-.form-header .btns button svg {
-    width: 13px;
-    fill: #c3c3c3;
-}
-.form-header .btns button:not(:first-child) {
-    margin-left: 25px;
-}
 .form-header .btns button span {
-    font-size: smaller;
-    font-weight: 500;
+    font-size: 13px;
 }
 
 .form-body {
@@ -252,12 +247,7 @@
     .forms {
         padding: 5px;
     }
-    .forms .form-nav {
-        width: 100%;
-        padding: 7px;
-    }
-    
-    .forms .form-nav .nav-item,
+
     .forms form .user-form .input-field,
     .forms form .service-form .input-field {
         width: 100%;
@@ -271,17 +261,6 @@
     .hero {
         width: 100%;
         padding: 5% 10px;
-    }
-    .forms .form-nav .nav-item span {
-        display: none;
-    }
-    .forms form .user-form .input-field .input-box,
-    .forms form .service-form .input-field .input-box {
-        width: 100%;
-    }
-    .forms form .user-form .button button,
-    .forms form .service-form .button button {
-        width: 100%;
     }
     .form-header .btns button span {
         display: none;

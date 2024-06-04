@@ -82,7 +82,7 @@ export class PartnerComponent {
     console.table(partner);
     this.partnerService.addPartner(partner).then(() => {
       alert('Vous serez redirigé vers une autre page');
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/user']);
     }).catch((error) => {
       alert(error);
     })

@@ -38,6 +38,8 @@
     </div>
     <div class="user-info mt-12">
         <form
+            #updateForm = "ngForm"
+            (ngSubmit)="onSubmit(updateForm.value)"
             class="flex items-start justify-start flex-col gap-8"
         >
             <div class="input-box">
@@ -50,9 +52,11 @@
                     </label>
                     <input
                         type="text"
-                        name="firstname"
+                        name="firstName"
                         id="firstname"
                         class="border w-full py-2 pl-2 rounded-md"
+                        ngModel
+                        required
                     >
                 </div>
                 <div class="input-field flex items-start flex-col gap-2">
@@ -64,9 +68,11 @@
                     </label>
                     <input
                         type="text"
-                        name="lastname"
+                        name="lastName"
                         id="lastname"
                         class="border w-full py-2 pl-2 rounded-md"
+                        ngModel
+                        required
                     >
                 </div>
                 <div class="input-field flex items-start flex-col gap-2">
@@ -81,6 +87,8 @@
                         name="email"
                         id="email"
                         class="border w-full py-2 pl-2 rounded-md"
+                        ngModel
+                        required
                     >
                 </div>
                 <div class="input-field flex items-start flex-col gap-2">
@@ -95,6 +103,8 @@
                         name="phone"
                         id="phone"
                         class="border w-full py-2 pl-2 rounded-md"
+                        ngModel
+                        required
                     >
                 </div>
             </div>
@@ -112,6 +122,8 @@
                         name="country"
                         id="country"
                         class="border w-full py-2 pl-2 rounded-md"
+                        ngModel
+                        required
                     >
                 </div>
                 <div class="input-field flex items-start flex-col gap-2">
@@ -126,6 +138,8 @@
                         name="region"
                         id="region"
                         class="border w-full py-2 pl-2 rounded-md"
+                        ngModel
+                        required
                     >
                 </div>
                 <div class="input-field flex items-start flex-col gap-2">
@@ -133,13 +147,31 @@
                         class="text-sm font-bold"
                         for="twon"
                     >
-                        Localisation / ville
+                        Ville
                     </label>
                     <input
                         type="text"
                         name="twon"
                         id="twon"
                         class="border w-full py-2 pl-2 rounded-md"
+                        ngModel
+                        required
+                    >
+                </div>
+                <div class="input-field flex items-start flex-col gap-2">
+                    <label
+                        class="text-sm font-bold"
+                        for="address"
+                    >
+                        Adresse-rue / Quartier
+                    </label>
+                    <input
+                        type="text"
+                        name="address"
+                        id="address"
+                        class="border w-full py-2 pl-2 rounded-md"
+                        ngModel
+                        required
                     >
                 </div>
             </div>
@@ -153,44 +185,3 @@
         </form>
     </div>
 </div>
-<!-- <div class="small-container">
-    <div
-        class="image border-b mb-4"
-        *ngIf="user$ | async as user"
-    >
-
-        <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Information Utilisateur</label>
-        <div class="flex items-center justify-center flex-wrap gap-20">
-            <div
-                class="mt-2 flex justify-start gap-8 rounded-full py-10"
-                routerLink="/user"
-            >
-                <div class="col-1">
-                    <div class="profile-img" (click)="inputField.click()">
-                        <img
-                            width="180"
-                            height="180"
-                            [src]="user.photoURL ?? '../../../assets/images/avatar.svg'"
-                            alt=""
-                            class="border rounded-md mb-4 p-2"
-                        >
-                        <button class="rounded-full text-sm text-white bg-indigo-600 py-2 px-3" (click)="inputField.click()">Upload Image</button>
-                    </div>
-                    <input type="file" hidden (change)="uploadImage($event, user)" #inputField />
-                </div>
-            </div>
-            <div class="col-2 flex items-center justify-start flex-col gap-8">
-                <div class="field">
-                    <h3 class="mb-2">Nom utilisateur</h3>
-                    <input type="text" class="py-2" placeholder="{{ user.displayName }}">
-                    <span class="text-gray-400">{{ user.email }}</span>
-                </div>
-                <div class="field">
-                    <h3 class="mb-2">Email</h3>
-                    <input type="text" class="py-2" placeholder="{{ user.email }}">
-                    <span class="text-gray-400">{{ user.email }}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->

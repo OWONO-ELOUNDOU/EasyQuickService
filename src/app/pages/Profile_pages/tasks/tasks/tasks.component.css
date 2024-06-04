@@ -1,0 +1,16 @@
+.content {
+    width: calc(100% - 270px);
+    margin-left: 270px;
+    padding: 7% 3% 2% 3%;
+}
+
+
+
+
+@media screen and (max-width: 560px) {
+    .content {
+        width: 100%;
+        padding: 15% 3% 3% 3%;
+        margin-left: 0;
+    }
+}

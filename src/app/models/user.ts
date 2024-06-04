@@ -5,8 +5,8 @@ export interface User {
     email: string,
     password: string,
     phone: string,
-    street: string,
+    activities: string,
     twon: string,
-    country: string,
+    region: string,
     terms?: boolean
 }

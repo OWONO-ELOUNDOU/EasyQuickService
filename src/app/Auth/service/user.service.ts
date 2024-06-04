@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Firestore, doc, docData, setDoc, updateDoc } from '@angular/fire/firestore';
+import { Database, set, ref, update } from '@angular/fire/database';
+
 import { ProfileUser } from '../model/profile-user';
-import { Observable, from, of, switchMap } from 'rxjs';
-import { AuthService } from '../../services/Auth/auth.service';
-import { Database, set, ref } from '@angular/fire/database';
-import { onValue } from 'firebase/database';
-import { Auth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -33,17 +29,14 @@ export class UserService {
   // }
 
   constructor(
-    private auth: Auth,
-    private database: Database,
-    private authService: AuthService
+    private database: Database
   ) { }
   
 
   addUser(user: ProfileUser) {
-    return set(ref(this.database, 'Users/' + user.uid), {
+    return set(ref(this.database, 'Users/' + user.firstName), {
       firstName: user.firstName,
       lastName: user.lastName,
-      displayName: user.displayName,
       email: user.email,
       phone: user.phone,
       address: user.address,
@@ -51,9 +44,4 @@ export class UserService {
       region: user.region
     })
   }
-
-  // updateUser(user: ProfileUser): Observable<any> {
-  //   const ref = doc(this.firestore, 'Users', user.uid);
-  //   return from(updateDoc(ref, { ...user }));
-  // }
 }

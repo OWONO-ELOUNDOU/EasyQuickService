@@ -10,11 +10,11 @@ export class NotificationService {
   sendNotification(logo: string, message: string) {
     Notification.requestPermission().then(perm => {
       if(perm === "granted") {
-        const notification = new Notification("Notification", {
+        new Notification('EasyQuickService Notification', {
           icon: logo,
           body: message,
           data: {}
-        });
+        })
       }
     })
   }

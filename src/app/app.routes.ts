@@ -11,7 +11,6 @@ import { ServiceListComponent } from './pages/service-list/service-list.componen
 import { SignupComponent } from './Auth/signup/signup.component';
 import { PartnerComponent } from './pages/partner/partner.component';
 import { LoginComponent } from './Auth/login/login.component';
-import { ProfileComponent } from './pages/Profile_pages/profile/profile.component';
 import { UserInfoComponent } from './pages/Profile_pages/user-info/user-info.component';
 import { HistoryComponent } from './pages/Profile_pages/history/history.component';
 import { FinishComponent } from './Components/finish/finish.component';
@@ -61,12 +60,6 @@ export const routes: Routes = [
         ...canActivate(redirectToHome)
     },
     {
-        path: 'profile',
-        component: ProfileComponent,
-        title: 'User Profile',
-        ...canActivate(redirectToLogin)
-    },
-    {
         path: 'user',
         component: UserInfoComponent,
         title: 'User Info',
@@ -82,6 +75,12 @@ export const routes: Routes = [
         path: 'transaction',
         component: TransactionComponent,
         title: 'Transaction',
+        ...canActivate(redirectToLogin)
+    },
+    {
+        path: 'tasks',
+        component: TransactionComponent,
+        title: 'Tasks',
         ...canActivate(redirectToLogin)
     },
     {
