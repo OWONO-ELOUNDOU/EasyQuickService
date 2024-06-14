@@ -9,8 +9,6 @@ import { of, switchMap } from 'rxjs';
 })
 export class ProfileService {
 
-  private readonly endPoint = "https://easyquickservice-551c7-default-rtdb.firebaseio.com/";
-
   constructor(
     private database: Database,
     private authService: AuthService

@@ -26,9 +26,4 @@ export class PartnerService {
       terms: true
     })
   }
-
-  // addPartner(partner: User) {
-  //   const partnerCollection = collection(this.firestore, 'Partners');
-  //   addDoc(partnerCollection, partner);
-  // }
 }

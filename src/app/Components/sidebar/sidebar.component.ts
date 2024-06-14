@@ -16,13 +16,18 @@ import { AuthService } from '../../services/Auth/auth.service';
 export class SidebarComponent {
 
   user$ = this.authService.currentUser$;
+  isMenuOpen: boolean = false;
 
   @Input() pageTitle: string = '';
 
   constructor(
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
+  
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen
+  }
 
   logOut() {
     this.authService.logout();

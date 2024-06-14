@@ -16,6 +16,7 @@ import { HistoryComponent } from './pages/Profile_pages/history/history.componen
 import { FinishComponent } from './Components/finish/finish.component';
 import { DohoneComponent } from './pages/dohone/dohone.component';
 import { TransactionComponent } from './pages/Profile_pages/transaction/transaction.component';
+import { TasksComponent } from './pages/Profile_pages/tasks/tasks/tasks.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectToHome = () => redirectLoggedInTo(['home']);
@@ -79,8 +80,8 @@ export const routes: Routes = [
     },
     {
         path: 'tasks',
-        component: TransactionComponent,
-        title: 'Tasks',
+        component: TasksComponent,
+        title: 'Tasks Page',
         ...canActivate(redirectToLogin)
     },
     {

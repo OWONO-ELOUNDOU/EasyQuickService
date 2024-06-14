@@ -1,30 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { Database, child, get, ref } from '@angular/fire/database';
+import { TaskForm } from '../../models/task-form';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TasksService {
 
+  private readonly firebaseEndPoint = 'https://easyquickservice-551c7-default-rtdb.firebaseio.com/';
+
   constructor(
-    private auth: Auth,
-    private database: Database
+    private database: Database,
+    private http: HttpClient
   ) { }
 
   // Function to get all tasks
+  // getAllTasks() {
+  //   const dbRef = ref(this.database);
+  //   return get(child(dbRef, 'Tasks/forms')).then((snapshot) => {
+  //     if (snapshot.exists()) {
+  //       return snapshot.val();
+  //     } else {
+  //       console.log("No data available");
+  //     }
+  //   }).catch((error) => {
+  //     console.log(error);
+  //   })
+  // }
+
   getAllTasks() {
-    const dbRef = ref(this.database);
-    get(child(dbRef, 'Tasks/forms')).then((snapshot) => {
-      if (snapshot.exists()) {
-        console.log(snapshot.val());
-        return snapshot.val();
-      } else {
-        console.log("No data available");
-      }
-    }).catch((error) => {
-      console.log(error);
-    })
+    return this.http.get<any[]>(`${this.firebaseEndPoint}/Tasks/forms.json`);
   }
 
 }

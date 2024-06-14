@@ -12,7 +12,6 @@ import { ProfileService } from '../../../services/Profile/profile.service';
 import { SidebarComponent } from '../../../Components/sidebar/sidebar.component';
 import { UserService } from '../../../Auth/service/user.service';
 import { ProfileUser } from '../../../Auth/model/profile-user';
-import { NotificationService } from '../../../services/Notification/notification.service';
 import { ImageUploaderService } from '../../../services/Image-Uploader/image-uploader.service';
 
 @Component({

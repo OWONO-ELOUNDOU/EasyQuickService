@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TaskForm } from '../../models/task-form';
 import { FormService } from '../../services/Forms/form.service';
-import { NotificationService } from '../../services/Notification/notification.service';
 
 @Component({
   selector: 'app-finish',
@@ -20,7 +19,6 @@ export class FinishComponent {
 
   constructor(
     private formService: FormService,
-    private notification: NotificationService
   ){
   }
 
@@ -33,12 +31,10 @@ export class FinishComponent {
     try {
       this.formService.addTask(this.task).subscribe(() => {
         this.isLoading = !this.isLoading;
-        this.notification.sendNotification(this.logo, this.successMsg);
       })
     } catch (error) {
       this.isLoading = !this.isLoading;
       console.log(error);
-      this.notification.sendNotification(this.logo, this.errMsg)
     }
     // console.log(this.task);
   }
