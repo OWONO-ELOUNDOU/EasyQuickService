@@ -8,6 +8,8 @@ import { ProfileService } from '../../../services/Profile/profile.service';
 import { TimelineComponent } from '../../../Components/timeline/timeline.component';
 import { SidebarComponent } from '../../../Components/sidebar/sidebar.component';
 import { FormService } from '../../../services/Forms/form.service';
+import { TaskState } from 'firebase/storage';
+import { TasksService } from '../../../services/Tasks/tasks.service';
 
 @Component({
   selector: 'app-history',
@@ -28,7 +30,8 @@ export class HistoryComponent implements OnInit {
   events!: any[];
 
   constructor(
-    private formService: FormService
+    private formService: FormService,
+    private taskService: TasksService
   ) {}
 
   ngOnInit(): void {
@@ -49,7 +52,25 @@ export class HistoryComponent implements OnInit {
       {
         content: 'Delivered'
       }
-    ]
+    ];
+
+    this.fecthData();
+  }
+
+  fecthData() {
+    this.taskService.getUserTasks().pipe(map((res: any) => {
+      const task = [];
+      for (const key in res) {
+        if (res.hasOwnProperty(key)) {
+          task.push({...res[key], id: key})
+        }
+      }
+      return task;
+    })).subscribe((task) => {
+      console.log(task);
+      this.Tasks = task;
+      console.log(this.Tasks.length);
+    })
   }
 
 }

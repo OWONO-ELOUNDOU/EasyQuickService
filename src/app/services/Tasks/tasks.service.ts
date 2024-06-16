@@ -3,6 +3,8 @@ import { Auth } from '@angular/fire/auth';
 import { Database, child, get, ref } from '@angular/fire/database';
 import { TaskForm } from '../../models/task-form';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../Auth/auth.service';
+import { of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,8 @@ export class TasksService {
 
   constructor(
     private database: Database,
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService
   ) { }
 
   // Function to get all tasks
@@ -32,6 +35,18 @@ export class TasksService {
 
   getAllTasks() {
     return this.http.get<any[]>(`${this.firebaseEndPoint}/Tasks/forms.json`);
+  }
+
+  getUserTasks() {
+    return this.authService.currentUser$.pipe(
+      switchMap(user => {
+        if (!user?.uid) {
+          return of(null);
+        } else {
+          return this.http.get(`${this.firebaseEndPoint}/Tasks/forms/${user.uid}.json`);
+        }
+      })
+    )
   }
 
 }

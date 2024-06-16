@@ -32,7 +32,7 @@ export class TasksComponent implements OnInit {
       const task = [];
       for (const key in res) {
         if (res.hasOwnProperty(key)) {
-          task.push({ ...res[key], id: key })
+          task.push({ ...res[key] })
         }
       }
       return task;
