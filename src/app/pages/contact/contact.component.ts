@@ -1,42 +1,46 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {ReactiveFormsModule, FormGroup, FormControl, Validators} from '@angular/forms';
 
 // Import de Composants
 import { HeaderComponent } from '../../Components/header/header.component';
 import { FooterComponent } from '../../Components/footer/footer.component';
 
-// Import de Modele
-import { ContactForm } from '../../models/contact-form';
-
 // Import de service
 import { ContactService } from '../../services/Contact/contact.service';
-import { throwError, timeout } from 'rxjs';
+import {ToastrService, ToastrModule} from "ngx-toastr";
 
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    FormsModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ToastrModule
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
 
+  contactForm = new FormGroup({
+    username: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    content: new FormControl('', Validators.required)
+  })
+
   constructor(
-    private contactService: ContactService
+    private contactService: ContactService,
+    private toastr: ToastrService,
   ) {}
 
-  onSubmit(contact: ContactForm) {
-    this.contactService.saveMessage(contact).subscribe((res) => {
-      console.log(res);
-      alert('Votre message a bien été pris en compte');
-    }, (err) => {
-      throw new Error(err.message);
-    })
+  onSubmit() {
+    console.log(this.contactForm.value);
+    this.contactService.saveMessage(this.contactForm.value).subscribe(() => {
+      this.toastr.success('Message saved', 'success');
+    }, (error) => {
+      this.toastr.error('Error saving message', 'error');
+    });
   }
 
 }

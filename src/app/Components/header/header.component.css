@@ -1,5 +1,11 @@
 nav {
-    z-index: 2;
+  width: 100%;
+  padding: 20px 7%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 2;
 }
 a {
     font-size: small;

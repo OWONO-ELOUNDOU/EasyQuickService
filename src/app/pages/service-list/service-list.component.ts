@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 // Import de Composants
 import { HeaderComponent } from '../../Components/header/header.component';
 import { FooterComponent } from '../../Components/footer/footer.component';
-import { PreviewComponent } from '../../Components/preview/preview.component';
+import { LoadingComponent } from '../../Components/loading/loading.component';
 
 // Import de Models
 import { TaskForm } from '../../models/task-form';
@@ -25,7 +25,7 @@ import { DohoneService } from '../../services/Dohone/dohone.service';
     FormsModule,
     HeaderComponent,
     FooterComponent,
-    PreviewComponent
+    LoadingComponent
   ],
   templateUrl: './service-list.component.html',
   styleUrl: './service-list.component.css'
@@ -44,7 +44,9 @@ export class ServiceListComponent {
   // let date = await new Date().toLocaleDateString() + ' - ' + new Date().toLocaleTimeString();
 
   count = 0;
-  
+  isLoading: boolean = false;
+  isRegister: boolean = false;
+  errorMessage: string = '';
   user$ = this.authService.currentUser$;
 
   types = [
@@ -156,14 +158,19 @@ export class ServiceListComponent {
     } else {
 
       try {
+        this.isLoading = !this.isLoading;
         form.type = this.selectedType;
         form.object = this.selectedObj;
         form.quality = this.selectedQlt;
         form.creationDate = this.date;
         this.formService.addTask(form).subscribe(() => {
+          this.isLoading = !this.isLoading;
+          this.isRegister = !this.isRegister;
           alert('votre demande a bien été prise en compte');
           this.addToCart(form);
           this.router.navigate(['dohone']);
+        }, (error) => {
+          this.errorMessage = error.message;
         })
       } catch (error) {
         console.log(error);

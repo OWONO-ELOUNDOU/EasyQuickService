@@ -1,46 +1,61 @@
 import { Injectable } from '@angular/core';
-import { Database, set, ref, update } from '@angular/fire/database';
+import { HttpClient } from '@angular/common/http';
+import {switchMap, of, Observable, from} from 'rxjs';
+import {Database, getDatabase, set, ref, get, child} from '@angular/fire/database';
 
-import { ProfileUser } from '../model/profile-user';
+import { AuthService } from '../../services/Auth/auth.service';
+import {User} from "../../models/user";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  userData: any;
+  private readonly databaseEndPoint = 'https://easyquickservice-551c7-default-rtdb.firebaseio.com';
 
-  // get currentUserProfile(): Observable<ProfileUser | null> {
+  // Get current user Data
+  // get currentUserData$(): Observable<User | null> {
   //   return this.authService.currentUser$.pipe(
-  //     switchMap(user => {
-  //       if(!user?.uid) {
+  //     switchMap((user) => {
+  //       if (!user?.uid) {
   //         return of(null);
   //       } else {
-  //         const userRef = ref(this.database, 'Users/' + user.uid);
-  //         onValue(userRef, (snapshot) => {
-  //           const data = snapshot.val()
-  //           this.userData = data;
-  //           console.log(data);
+  //         const dbRef = ref(getDatabase());
+  //         let userData: any;
+  //         get(child(dbRef, `Users/${user.uid}`)).then((snapshot) => {
+  //           if (snapshot.exists()) {
+  //             userData = snapshot.val();
+  //           } else {
+  //             console.log('No Data Available');
+  //           }
   //         })
-  //         return this.userData as Observable<ProfileUser>
+
+  //         return userData as Observable<User>
   //       }
   //     })
   //   )
   // }
 
   constructor(
-    private database: Database
+    private database: Database,
+    private authService: AuthService,
+    private http: HttpClient
   ) { }
-  
 
-  addUser(user: ProfileUser) {
-    return set(ref(this.database, 'Users/' + user.firstName), {
+
+  // Function to add new user to firebase realtime database
+  addUser(userId: string,  user: any) {
+    return set(ref(this.database, 'Users/' + userId), {
+      userId: userId,
       firstName: user.firstName,
       lastName: user.lastName,
+      displayName: user.firstName + ' ' + user.lastName,
       email: user.email,
-      phone: user.phone,
-      address: user.address,
+      phoneNumber: user.phoneNumber,
+      address: user.streetAddress,
       twon: user.twon,
+      role: user.role,
       region: user.region
     })
   }

@@ -1,0 +1,68 @@
+.content {
+    width: clac(100% - 250px);
+    height: 100vh;
+    padding: 30px 10px;
+    margin-left: 250px;
+    background-color: #f7f7fc;
+}
+
+.content .header {
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.filter select {
+    border-radius: 30px;
+    border: 1px solid #efefef;
+    background-color: #f7f7fc;
+}
+
+.task-list {
+    padding: 10px;
+    border: 1px solid #efefef;
+    border-radius: 20px;
+    background-color: #fff;
+    overflow-x: scroll;
+}
+.task-list table {
+    border-collapse: collapse;
+}
+.task-list table thead tr {
+    border-bottom: 1px dashed #777;
+}
+.task-list table thead tr td {
+    font-size: 13px;
+    padding: 10px 0;
+    text-align: center;
+}
+.task-list table tbody tr {
+    font-size: 13px;
+    text-align: center;
+    border-bottom: 1px solid #efefef;
+}
+.task-list table tbody tr td {
+    width: calc((100% - 290px) / 7);
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 560px) {
+    .content {
+        width: 100%;
+        margin-left: 0;
+    }
+    .content .header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .content .header h1 {
+        font-size: 18px;
+        text-align: center;
+    }
+    .task-list table {
+        width: 1080px;
+        overflow-x: hidden;
+    }
+}

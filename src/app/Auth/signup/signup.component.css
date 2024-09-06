@@ -3,15 +3,32 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: 5% 0;
+    height: 100vh;
+  background-color: #f0f4f9;
+}
+form {
+  background-color: #ffffff;
+  padding: 15px;
+}
+div span {
+  font-size: 10px;
 }
 input, textarea {
     padding-left: 10px;
 }
+button {
+  width: clamp(250px, 100%, 400px);
+}
 
 @media screen and (max-width: 950px) {
     .signup-form {
-        margin-bottom: 25%;
-        padding: 0 5%;
+        height: 100vh;
+        padding: 30px 3%;
     }
+}
+@media screen and (max-width: 560px) {
+  .signup-form {
+    height: 100%;
+    padding: 30px 3%;
+  }
 }

@@ -1,12 +1,16 @@
 export interface User {
-    firstName: string,
-    lastName: string,
-    profilePic?: File,
-    email: string,
-    password: string,
-    phone: string,
-    activities: string,
-    twon: string,
-    region: string,
-    terms?: boolean
+    uid: string;
+    firstName: string;
+    lastName: string;
+    displayName?: string;
+    profilePic?: File;
+    email: string;
+    password: string;
+    phoneNumber: string;
+    activities: string;
+    streetAddress: string;
+    twon: string;
+    region: string;
+    terms?: boolean;
+    role: string;
 }

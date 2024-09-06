@@ -1,0 +1,109 @@
+<app-sidebar />
+<div class="content bg-gray-100">
+    <h1 class="text-2xl font-medium">User Profile Information</h1>
+
+    <div class="user-profile-pic my-12 border p-3 rounded-md bg-white" >
+        <label for="profile-pic" class="text-md font-semibold">Profile Picture</label>
+        <div class="row flex items-start justify-start gap-8 mt-8">
+            <div class="profile-pic" *ngIf="user$ | async as user">
+                <img
+                    [src]="user.photoURL ?? '../../../assets/images/avatar.svg'"
+                    class="rounded-full"
+                    alt="Profile Picture"
+                    width="130"
+                    height="130"
+                />
+            </div>
+            <div class="text-info">
+                <p class="mb-6">Cette image sera utilisée comme photo de profile utilisateur</p>
+                <button
+                    class="border py-3 px-8 rounded-full"
+                    (click)="inputField.click()"
+                >
+                    Modifier l'image
+                </button>
+                <input type="file" hidden #inputField />
+            </div>
+        </div>
+    </div>
+
+    <div class="user-form">
+        <form class="border rounded-md p-3 bg-white">
+            <div class="input-box flex items-start justify-start gap-8 pb-8 border-b flex-wrap mb-8">
+                <div class="input-field flex items-start justify-start flex-col gap-2">
+                    <label for="firstName" class="text-sm text-gray-400 font-semibold">Nom</label>
+                    <input
+                        type="text"
+                        id="firstName"
+                        formControlName="firstName"
+                        class="w-full border py-2 pl-2 rounded-md"
+                        placeholder="owono eloundou"
+                    />
+                </div>
+                <div class="input-field flex items-start justify-start flex-col gap-2">
+                    <label for="lastName" class="text-sm text-gray-400 font-semibold">Prénom</label>
+                    <input
+                        type="text"
+                        id="lastName"
+                        formControlName="lastName"
+                        class="w-full border py-2 pl-2 rounded-md"
+                        placeholder="Hermann Joseph"
+                    />
+                </div>
+                <div class="input-field flex items-start justify-start flex-col gap-2">
+                    <label for="email" class="text-sm text-gray-400 font-semibold">email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        formControlName="email"
+                        class="w-full border py-2 pl-2 rounded-md"
+                        placeholder="owonohermann54@gmail.com"
+                    />
+                </div>
+                <div class="input-field flex items-start justify-start flex-col gap-2">
+                    <label for="phoneNumber" class="text-sm text-gray-400 font-semibold">Téléphone</label>
+                    <input
+                        type="text"
+                        id="phoneNumber"
+                        formControlName="phoneNumber"
+                        class="w-full border py-2 pl-2 rounded-md"
+                        placeholder="696052700"
+                    />
+                </div>
+            </div>
+
+            <div class="input-box flex items-start justify-start gap-8 flex-wrap">
+                <div class="input-field flex items-start justify-start flex-col gap-2">
+                    <label for="twon" class="text-sm text-gray-400 font-semibold">Ville de résidence</label>
+                    <input
+                        type="text"
+                        formControlName="twon"
+                        id="twon"
+                        class="w-full border py-2 pl-2 rounded-md"
+                        placeholder="Yaoundé"
+                    >
+                </div>
+                <div class="input-field flex items-start justify-start flex-col gap-2">
+                    <label for="streetAddress" class="text-sm text-gray-400 font-semibold">Quartier</label>
+                    <input
+                        type="text"
+                        name="streetAddress"
+                        id="streetAddress"
+                        class="w-full border py-2 pl-2 rounded-md"
+                        placeholder="Ekoumdoum - Terminus"
+                    >
+                </div>
+                <div class="input-field flex items-start justify-start flex-col gap-2">
+                    <label for="region" class="text-sm text-gray-400 font-semibold">Région</label>
+                    <input
+                        type="text"
+                        name="region"
+                        id="region"
+                        class="w-full border py-2 pl-2 rounded-md"
+                        placeholder="Centre"
+                    >
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

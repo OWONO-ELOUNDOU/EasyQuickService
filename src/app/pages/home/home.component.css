@@ -1,53 +1,55 @@
-
 .hero {
     width: 100%;
-    height: 100vh;
-    padding: 50px 7%;
-    background: linear-gradient(to bottom, #000, transparent),
-                url(../../../assets/images/backgrounds/background_1.jpg) center no-repeat;
-    background-size: cover;
+    height: 700px;
+    padding: 100px 7%;
 }
 .hero .small-container {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     border-radius: 7px;
-    background: rgba(201, 201, 201, 0.212);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
-.hero .small-container .btn a svg {
-    width: 25px;
-    fill: inherit;
-    stroke: #fff;
-    stroke-width: 25px;
+    background: linear-gradient(to top, #424242 0%, transparent 100%),
+                url("../../../assets/images/backgrounds/background_1.jpg") center no-repeat;
+    background-size: cover;
 }
 
-.jober {
-    margin: 100px 0;
-    padding: 0 6%;
+.offers {
+  padding: 50px 7%;
 }
-.jober .image {
-    min-width: 200px;
-    max-width: 600px;
-    width: 100%;
-    padding: 10px;
+.offers .card {
+  width: clamp(250px, 100%, 500px);
+  padding: 20px;
+  aspect-ratio: 4/3;
+  position: relative;
 }
-.jober .info {
-    max-width: 500px;
-    min-width: 200px;
+.offers .card.card-1 {
+  background: linear-gradient(to top, #424242 0%, transparent 100%),
+              url("../../../assets/images/backgrounds/easy_asker.jpg") center no-repeat;
+  background-size: cover;
 }
-.jober .info button {
-    width: 35%;
-    padding: 10px 0;
-    cursor: pointer;
+.offers .card.card-2 {
+  background: linear-gradient(to top, #424242 0%, transparent 100%),
+  url("../../../assets/images/backgrounds/partner.jpeg") center no-repeat;
+  background-size: cover;
+}
+.offers .card .badge {
+  width: 70px;
+  font-size: 10px;
+  padding: 3px 7px;
+  color: #5f5ff7;
+  background-color: #ffffff;
+}
+.offers .card .card-text button {
+  font-size: 13px;
 }
 
 @media screen and (max-width: 950px) {
     .hero {
         width: 100%;
+        height: 600px;
         padding: 5% 3%;
     }
     .small-container p {
@@ -58,26 +60,20 @@
         text-align: center;
         font-size: 35px;
     }
-    .jober {
-        padding: 0 auto;
-        margin: 50px 0;
-        gap: 30px;
+    .offers {
+      align-items: center;
+      justify-content: center;
     }
-    .jober .image img {
-        width: 100%;
-    }
-    .jober .info {
-        max-width: 600px;
-        width: 100%;
-        padding: 10px;
-    }
-    .jober .info .title {
-        font-size: xx-large;
-    }
-    .jober .info p {
-        text-wrap: balance;
-    }
-    .jober .info button {
-        width: 100%;
-    }
+}
+@media screen and (max-width: 560px) {
+  .hero {
+    height: 100%;
+  }
+  .hero .small-container {
+    height: 500px;
+  }
+  .offers {
+    padding: 50px 10px;
+    gap: 30px;
+  }
 }

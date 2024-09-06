@@ -5,7 +5,7 @@ export const navLinks = [
     },
     {
         name: 'Services',
-        path: 'service-list'
+        path: 'service-form'
     },
     {
         name: 'Partenariat',
@@ -35,8 +35,8 @@ export const mobileLinks = [
     {
         iconName: "fa-solid fa-plus",
         name: 'Services',
-        path: 'service-list'
-    },  
+        path: 'service-form'
+    },
     {
         iconName: "fa-solid fa-phone",
         name: 'Contact',

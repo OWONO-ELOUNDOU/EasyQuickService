@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { Database, child, get, ref } from '@angular/fire/database';
-import { TaskForm } from '../../models/task-form';
+import { TaskForm, TaskGroup } from '../../models/task-form';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../Auth/auth.service';
-import { of, switchMap } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,8 @@ import { of, switchMap } from 'rxjs';
 export class TasksService {
 
   private readonly firebaseEndPoint = 'https://easyquickservice-551c7-default-rtdb.firebaseio.com/';
+  private readonly testUsersEndpoint = 'database/users.json';
+  private readonly testTasksEndpoint = 'database/tasks.json';
 
   constructor(
     private database: Database,
@@ -19,22 +21,12 @@ export class TasksService {
     private authService: AuthService
   ) { }
 
-  // Function to get all tasks
-  // getAllTasks() {
-  //   const dbRef = ref(this.database);
-  //   return get(child(dbRef, 'Tasks/forms')).then((snapshot) => {
-  //     if (snapshot.exists()) {
-  //       return snapshot.val();
-  //     } else {
-  //       console.log("No data available");
-  //     }
-  //   }).catch((error) => {
-  //     console.log(error);
-  //   })
-  // }
-
-  getAllTasks() {
-    return this.http.get<any[]>(`${this.firebaseEndPoint}/Tasks/forms.json`);
+  getAllTasks(): Observable<TaskForm[]> {
+    return this.http.get<TaskForm[]>(`${this.testTasksEndpoint}`);
+  }
+  
+  getTaskDetails(taskId: string) {
+    return this.http.get<TaskForm>(`${this.testTasksEndpoint}/${taskId}`);
   }
 
   getUserTasks() {
@@ -43,7 +35,7 @@ export class TasksService {
         if (!user?.uid) {
           return of(null);
         } else {
-          return this.http.get(`${this.firebaseEndPoint}/Tasks/forms/${user.uid}.json`);
+          return this.http.get<TaskForm[]>(`${this.firebaseEndPoint}/Tasks/forms/${user.uid}.json`);
         }
       })
     )

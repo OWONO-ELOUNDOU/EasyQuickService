@@ -7,16 +7,16 @@ import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angula
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { ServiceListComponent } from './pages/service-list/service-list.component';
 import { SignupComponent } from './Auth/signup/signup.component';
 import { PartnerComponent } from './pages/partner/partner.component';
 import { LoginComponent } from './Auth/login/login.component';
-import { UserInfoComponent } from './pages/Profile_pages/user-info/user-info.component';
-import { HistoryComponent } from './pages/Profile_pages/history/history.component';
-import { FinishComponent } from './Components/finish/finish.component';
 import { DohoneComponent } from './pages/dohone/dohone.component';
-import { TransactionComponent } from './pages/Profile_pages/transaction/transaction.component';
-import { TasksComponent } from './pages/Profile_pages/tasks/tasks/tasks.component';
+import { ServiceFormComponent } from "./pages/service-form/service-form.component";
+import { AdminProfileLayoutComponent } from './Admin/Pages/admin-profile-layout/admin-profile-layout.component';
+import { TransactionListLayoutComponent } from './Admin/Pages/transaction-list-layout/transaction-list-layout/transaction-list-layout.component';
+import { TaskListLayoutComponent } from './Admin/Pages/task-list-layout/task-list-layout.component';
+import { UsersListLayoutComponent } from './Admin/Pages/users-list-layout/users-list-layout.component';
+import { CompletedTaskLayoutComponent } from './Admin/Pages/completed-task-layout/completed-task-layout/completed-task-layout.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectToHome = () => redirectLoggedInTo(['home']);
@@ -39,9 +39,9 @@ export const routes: Routes = [
         title: 'Contact Page'
     },
     {
-        path: 'service-list',
-        component: ServiceListComponent,
-        title: 'Service Page'
+      path: 'service-form',
+      component: ServiceFormComponent,
+      title: 'Service Page'
     },
     {
         path: 'partner',
@@ -61,33 +61,33 @@ export const routes: Routes = [
         ...canActivate(redirectToHome)
     },
     {
-        path: 'user',
-        component: UserInfoComponent,
-        title: 'User Info',
-        ...canActivate(redirectToLogin)
-    },
-    {
-        path: 'history',
-        component: HistoryComponent,
-        title: 'History',
+        path: 'admin',
+        component: AdminProfileLayoutComponent,
+        title: 'Profile',
         ...canActivate(redirectToLogin)
     },
     {
         path: 'transaction',
-        component: TransactionComponent,
+        component: TransactionListLayoutComponent,
         title: 'Transaction',
         ...canActivate(redirectToLogin)
     },
     {
-        path: 'tasks',
-        component: TasksComponent,
+        path: 'tasks-list',
+        component: TaskListLayoutComponent,
         title: 'Tasks Page',
         ...canActivate(redirectToLogin)
     },
     {
-        path: 'finish',
-        component: FinishComponent,
-        title: 'Confirmation',
+        path: 'completed-task',
+        component: CompletedTaskLayoutComponent,
+        title: 'Completed Tasks Page',
+        ...canActivate(redirectToLogin)
+    },
+    {
+        path: 'users-list',
+        component: UsersListLayoutComponent,
+        title: 'Users Page',
         ...canActivate(redirectToLogin)
     },
     {

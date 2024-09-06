@@ -1,0 +1,107 @@
+.content {
+    width: clac(100% - 250px);
+    height: 100vh;
+    padding: 30px 10px;
+    margin-left: 250px;
+    background-color: #f7f7fc;
+}
+
+.content .header {
+    border-radius: 20px;
+}
+.content .cards .card {
+    width: clamp(200px, 100%, 250px);
+    padding: 30px;
+    border-radius: 20px;
+    background-color: #fff;
+}
+.content .cards .card .card-info span{
+    border-radius: 30px;
+}
+.card.card-1 {
+    border: 2px solid lightblue;
+}
+.card.card-1 .card-info span {
+    color: rgb(24, 100, 125);
+    background-color: lightblue;
+}
+.card.card-2 {
+    border: 2px solid #8092fa;
+}
+.card.card-2 .card-info span {
+    color: #18277d;
+    background-color: #8092fa;
+}
+.card.card-3 {
+    border: 2px solid #fcd2c2;
+}
+.card.card-3 .card-info span {
+    color: #f4642b;
+    background-color: #fcd2c2;
+}
+.card.card-4 {
+    border: 2px solid lightgreen;
+}
+.card.card-4 .card-info span {
+    color: green;
+    background-color: lightgreen;
+}
+
+.filter select {
+    border-radius: 30px;
+    border: 1px solid #efefef;
+    background-color: #f7f7fc;
+}
+
+.task-list {
+    padding: 10px;
+    border: 1px solid #efefef;
+    border-radius: 20px;
+    background-color: #fff;
+    overflow-x: scroll;
+}
+.task-list table {
+    border-collapse: collapse;
+}
+.task-list table thead tr {
+    border-bottom: 1px dashed #777;
+}
+.task-list table thead tr td {
+    font-size: 13px;
+    padding: 10px 0;
+    text-align: center;
+}
+.task-list table tbody tr {
+    font-size: 13px;
+    text-align: center;
+    border-bottom: 1px solid #efefef;
+}
+.task-list table tbody tr td {
+    width: calc((100% - 290px) / 7);
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 560px) {
+    .content {
+        width: 100%;
+        margin: 0;
+    }
+    .content .header {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .content .header h1 {
+        font-size: 18px;
+        text-align: center;
+    }
+    .content .cards .card {
+        width: 100%;
+    }
+    .task-list table {
+        width: 1080px;
+        overflow-x: hidden;
+    }
+}

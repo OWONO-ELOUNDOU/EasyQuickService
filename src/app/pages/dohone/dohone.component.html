@@ -1,22 +1,38 @@
 <div class="small-container">
     <div class="dohone-box">
-        <div class="items-list">
-            @if (tasks.length < 0) {
-                <h4>Aucun élément dans le panier</h4>
-            }
-            @else {
-                @for (task of tasks; track $index) {
-                    <div class="item">
-                        <div class="item-header">
-                            <h4>{{ task.type }}</h4>
-                            <span>{{ price | currency : 'XAF' }}</span>
-                        </div>
-                        <div class="item-body">
-                            <p>{{ task.description }}</p>
-                        </div>
-                    </div>
-                }
-            }
+        <div class="item border bg-white">
+            <div class="item-header flex items-start justify-start gap-8 mb-8 pb-4 border-b flex-wrap">
+                <div class="service">
+                    <h4>Type</h4>
+                    <p></p>
+                </div>
+                <div class="service">
+                    <h4>Objet</h4>
+                    <p></p>
+                </div>
+                <div class="service">
+                    <h4>Qualité</h4>
+                    <p></p>
+                </div>
+            </div>
+            <div class="item-body mb-8 pb-4 border-b">
+                <h4>Description</h4>
+                <p></p>
+            </div>
+            <div class="item-footer">
+                <div class="service">
+                    <h4>Nature Juridique</h4>
+                    <p></p>
+                </div>
+                <div class="service">
+                    <h4>Service à voir</h4>
+                    <p></p>
+                </div>
+                <div class="service">
+                    <h4>Localisation</h4>
+                    <p></p>
+                </div>
+            </div>
         </div>
         <div class="user-details">
             <div class="user-info" *ngIf="user$ | async as user">
@@ -29,10 +45,6 @@
                         height="50px"
                         alt="user-profile-picture"
                     >
-                    <!-- <div class="address">
-                        <h4>{{ user.displayName }}</h4>
-                        <span>{{ user.email }}</span>
-                    </div> -->
                 </div>
                 <form
                     [formGroup]="checkoutForm"

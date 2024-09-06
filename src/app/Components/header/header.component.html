@@ -1,45 +1,69 @@
-<nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+<nav class="flex items-center justify-between">
     <div class="logo flex items-center">
-      <!-- <img src="../../../assets/images/favicon.webp" alt="Easy-Quick-Service web page" width="40px" height="40px" /> -->
-      <span class="text-3xl font-semibold text-indigo-600">EasyQuickService</span>
+      <span class="text-3xl font-semibold text-indigo-600">easyquickservice</span>
       <div id="menu" (click)="toggleMenu()">
         <i
           class="fa-solid fa-{{ isOpenMenu ? 'xmark' : 'bars' }}"
         ></i>
       </div>
     </div>
-    <ul class="nav-link flex items-center py-2.5" [class.open]="isOpenMenu">
-      @for (link of links; track $index) {
-        <li class="mr-5">
-          <a routerLink="/{{ link.path }}">{{ link.name }}</a>
+
+    <div class="flex items-center justify-center gap-5">
+      <ul class="nav-link flex items-center py-2.5" [class.open]="isOpenMenu">
+        @for (link of links; track $index) {
+          <li class="mr-5">
+            <a routerLink="/{{ link.path }}">{{ link.name }}</a>
+          </li>
+        }
+        <li
+          class="mr-5"
+          *ngIf="user$ | async as user"
+        >
+          <a routerLink="/history">Historique</a>
         </li>
-      }
-    </ul>
+      </ul>
 
-    <div class="buttons" [class.open]="isOpenMenu">
-      <ng-container *ngIf="user$ | async as user; else loginButton">
-        <a
-          routerLink="/user"
-          class="login-btn"
-        >
-          {{ user.displayName }} <img [src]="user.photoURL ?? '../../assets/images/avatar.svg'" class="rounded-full ml-4" width="30" height="30">
-        </a>
-      </ng-container>
+      <div class="buttons flex items-center justify-center gap-2.5 border p-2" [class.open]="isOpenMenu">
+        <ng-container *ngIf="user$ | async as user; else loginButton">
+          <a
+            routerLink="/admin"
+            class="login-btn text-sm"
+          >
+            {{ user.email }}
+            <img
+              [src]="user.photoURL ?? '../../assets/images/avatar.svg'"
+              class="rounded-full ml-4"
+              width="30"
+              height="30"
+            >
+          </a>
+        </ng-container>
 
-      <ng-template #loginButton>
-        <a
-          routerLink="/login"
-          class="login-btn"
-        >
-          connexion <i class="fa-solid fa-arrow-right-to-bracket"></i>
-        </a>
-      </ng-template>
-  </div>
+        <ng-template #loginButton>
+          <a
+            routerLink="/login"
+            class="login-btn text-sm pr-3 border-r text-indigo-600"
+          >
+            connexion
+          </a>
+          <a
+            routerLink="/signup"
+            class="login-btn text-sm"
+          >
+            inscription
+          </a>
+        </ng-template>
+      </div>
+    </div>
+
 </nav>
 
 <div class="mobile-nav flex items-center justify-between gap-x-4 px-8 py-3 border-t bg-white">
   @for (mobile of mobiles; track $index) {
-    <div class="navlink flex items-center justify-center flex-col gap-y-2" routerLink="/{{ mobile.path }}">
+    <div
+      class="navlink flex items-center justify-center flex-col gap-y-2"
+      routerLink="/{{ mobile.path }}"
+    >
       <i class="{{ mobile.iconName }} text-lg text-indigo-600"></i>
       <p class="text-sm">{{ mobile.name }}</p>
     </div>

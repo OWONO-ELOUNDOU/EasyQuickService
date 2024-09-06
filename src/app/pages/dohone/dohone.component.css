@@ -16,7 +16,8 @@
     gap: 30px;
 }
 
-.dohone-box .user-details {
+.dohone-box .user-details,
+.dohone-box .item {
     max-width: 435px;
     width: 100%;
     padding: 20px;
@@ -24,35 +25,21 @@
     background: #f7f7fc;
 }
 
-.items-list {
-    max-width: 435px;
-    width: 100%;
-    max-height: 353px;
-    height: 100%;
-    overflow-y: scroll;
+.dohone-box .item {
+    background-color: white;
 }
-.items-list .item {
-    width: 100%;
-    padding: 20px;
-    margin-bottom: 10px;
-    background: #f7f7fc;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px #cdcdff;
-}
-.items-list .item .item-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
+.item .item-header .service,
+.item .item-footer .service {
+    width: 120px;
 }
 
-.items-list .item .item-header h4,
+
 .user-details .user-info .info h4,
 .user-details .user-info form label {
     font-size: 15px;
     font-weight: 600;
 }
-.items-list .item .item-header span,
+
 .user-details .user-info .info span {
     font-size: 12px;
     color: #555;

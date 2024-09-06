@@ -47,9 +47,6 @@
     flex-wrap: wrap;
     gap: 25px;
 }
-.forms form .user-form .input-field:not(:last-child) {
-    margin-bottom: 20px;
-}
 
 .forms form .service-form .input-field .input-box {
     width: 300px;
@@ -95,21 +92,43 @@
     border-radius: 10px;
 }
 
-.forms form .user-form .button,
 .forms form .service-form .button {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     padding: 30px 0;
 }
-.forms form .user-form .button button,
+
 .forms form .service-form .button button {
-    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 250px;
     padding: 10px 0;
     font-size: 13px;
     color: #fff;
     background-color: #5f5ff7;
+}
+
+.forms .service-form .toast {
+  width: 100%;
+}
+.forms .service-form .toast span {
+  width: 100%;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.forms .service-form .toast .success {
+  background-color: #03a603;
+  color: #ffffff;
+}
+.forms .service-form .toast .error {
+  background-color: #f84343;
+  color: #ffffff;
 }
 
 .cta-btn {

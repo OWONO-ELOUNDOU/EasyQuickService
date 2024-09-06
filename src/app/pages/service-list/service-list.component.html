@@ -3,7 +3,7 @@
 
     <ng-container *ngIf="user$ | async as user; else messageBox">
         <form #taskForm="ngForm" class="w-full p-3">
-    
+
             <div class="service-form">
                 <div class="section">
                     <h3>Information sur le service</h3>
@@ -17,7 +17,7 @@
                                 }
                             </select>
                         </div>
-    
+
                         <div class="input-box">
                             <label for="subject">Objet du service</label>
                             <select name="object" id="object" class="border w-full" (change)="showItemObj($event)" ngModel>
@@ -27,7 +27,7 @@
                                 }
                             </select>
                         </div>
-    
+
                         <div class="input-box">
                             <label for="quality">Qualité du service</label>
                             <select name="quality" id="quality" class="border w-full" (change)="showItemQlt($event)" ngModel>
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="section">
                     <h3>Description</h3>
                     <div class="input-field text">
@@ -53,7 +53,7 @@
                         ></textarea>
                     </div>
                 </div>
-    
+
                 <div class="section">
                     <h3>Localisation de votre prestation</h3>
                     <div class="input-field">
@@ -92,15 +92,30 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="button">
-                    <button type="submit" (click)="onSubmit(taskForm.value, user.uid)" >Continuer</button>
+                    @if (!isLoading) {
+                        <button type="submit" (click)="onSubmit(taskForm.value, user.uid)" >Continuer</button>
+                    }
+                    @else {
+                        <button>
+                            Enregistrement <app-loading />
+                        </button>
+                    }
                     <button (click)="addToCart(taskForm.value)" >Ajouter au panier ({{ count ? count : '0' }}) </button>
+                </div>
+
+                <div class="toast">
+                  @if (isRegister) {
+                    <span class="success">Enregistrement Réussi</span>
+                  }
+                  @if (errorMessage) {
+                    <span class="error">{{ errorMessage }}</span>
+                  }
                 </div>
             </div>
 
             <div class="preview">
-                <!-- <app-preview [form]="service" /> -->
                 <div class="form-preview">
                     <div class="form-header">
                         <div class="header">
@@ -201,7 +216,7 @@
                             </div> -->
                             <div class="row">
                                 <label for="total">Total</label>
-                                <span id="total">300,00 XAF</span>
+                                <span id="total">3000,00 XAF</span>
                             </div>
                             <div class="row">
                                 <label for="amount">Montant attendu</label>

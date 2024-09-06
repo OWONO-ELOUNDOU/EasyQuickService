@@ -7,7 +7,7 @@ import {
   createUserWithEmailAndPassword,
   UserInfo,
 } from "@angular/fire/auth";
-import { Observable, concatMap, from, of } from "rxjs";
+import {Observable, concatMap, from, of, switchMap} from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -17,22 +17,25 @@ export class AuthService {
     private auth: Auth,
   ) {}
 
+  // Get the current auth state
   currentUser$ = authState(this.auth);
 
-  login(email: string, password: string) {
-    // Simulates a call to the server for authentication.
-    return from(signInWithEmailAndPassword(this.auth, email, password));
+  // Function to log In the user
+  login(username: any, password: any) {
+    return from(signInWithEmailAndPassword(this.auth, username, password));
   }
 
+  // Function to log out the user
   logout() {
     return from(this.auth.signOut());
   }
 
-  signUp(email: string, password: string) {
-    // SignUp using @angular/fire module
-    return from(createUserWithEmailAndPassword(this.auth, email, password))
+  // Function to sign Up the user
+  signUp(email: any, password: any) {
+    return from(createUserWithEmailAndPassword(this.auth, email, password));
   }
 
+  // Update the user profile data
   updateProfileData(profileData: Partial<UserInfo>): Observable<any> {
     const user = this.auth.currentUser;
     return of(user).pipe(

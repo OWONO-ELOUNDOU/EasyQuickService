@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ContactForm } from '../../models/contact-form';
 import { Database, ref, set } from '@angular/fire/database';
 import { Auth } from '@angular/fire/auth';
 import { AuthService } from '../Auth/auth.service';
@@ -18,14 +17,15 @@ export class ContactService {
 
   userId = this.auth.currentUser?.uid;
 
-  saveMessage(message: ContactForm) {
+  saveMessage(message: any) {
     return this.authService.currentUser$.pipe(
       switchMap(user => {
         if(!user?.uid) {
           return of(null);
         }
         else {
-          return set(ref(this.database, `Messages/${user.uid}/feedbacks/` + message.content), {
+          return set(ref(this.database, `Messages/${user.uid}`), {
+            userId: user.uid,
             username: message.username,
             email: message.email,
             content: message.content
@@ -33,14 +33,6 @@ export class ContactService {
         }
       })
     )
-  }
-
-  addMessage(message: ContactForm) {
-    return set(ref(this.database, `Messages/${this.userId}/feedBacks/` + message.content), {
-      username: message.username,
-      email: message.email,
-      content: message.content
-    })
   }
 
 }

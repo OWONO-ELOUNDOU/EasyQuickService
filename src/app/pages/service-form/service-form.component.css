@@ -1,0 +1,169 @@
+.hero {
+  width: 100%;
+  height: 100%;
+  padding: 8% 7%;
+}
+.hero .rows .image {
+  width: clamp(300px, 100%, 550px);
+}
+.hero .rows .info {
+  width: clamp(300px, 100%, 550px);
+}
+.hero .rows .info ul li {
+  width: 100%;
+  padding: 20px 0;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#form {
+  padding: 7%;
+}
+#form h1 {
+  background-color: #ffffff;
+  box-shadow: 0 0 3px #dddddd;
+  border-radius: 5px;
+}
+#form form .box {
+  width: 100%;
+}
+.box:not(:last-child) {
+  margin-bottom: 25px;
+}
+label {
+  font-size: 14px;
+  color: #777777;
+}
+.box {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 3px #ddd;
+}
+.box1 {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: wrap;
+  padding: 20px 10px;
+}
+.box1 .input-field {
+  width: 280px;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+select {
+  width: 90%;
+  height: 30px;
+  font-size: 13px;
+  border: 1px solid #efefef;
+}
+
+.box2 {
+  padding: 20px 40px;
+}
+.box2 .input-field {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  gap: 7px;
+}
+.box2 .input-field textarea {
+  width: 100%;
+  resize: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+}
+.box2 .input-field textarea:focus {
+  outline: none;
+}
+
+.box3 {
+  padding: 20px 40px;
+}
+.box3 .input-field {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  gap: 7px;
+}
+.box3 .input-field:not(:last-child) {
+  margin-bottom: 15px;
+}
+.box3 .input-field input {
+  width: 100%;
+  font-size: 13px;
+  padding-left: 10px;
+  border-bottom: 1px solid #777;
+}
+.box3 .input-field input:focus {
+  outline: none;
+}
+
+.button {
+  width: 100%;
+  text-align: center;
+}
+.button button {
+  width: clamp(300px, 100%, 500px);
+  padding: 7px 0;
+  font-size: 15px;
+  color: #ffffff;
+  background-color: #5f5ff7;
+  cursor: pointer;
+}
+
+.card {
+  width: clamp(250px, 100%, 350px);
+  height: 100%;
+  padding: 20px;
+}
+.card .card-header svg {
+  width: 25px;
+}
+.card .card-body p {
+  font-size: 13px;
+}
+.card .card-body button {
+  font-size: 13px;
+}
+
+
+@media screen and (max-width: 560px) {
+  .hero {
+    justify-content: center;
+  }
+  .title {
+    width: 100%;
+    text-align: center;
+    text-wrap: balance;
+    font-size: 20px;
+  }
+  #form {
+    padding: 7% 20px;
+  }
+  #form h1,
+  #form form {
+    width: 100%;
+  }
+  form {
+    padding: 0;
+  }
+  .box {
+    padding: 10px;
+    border: 1px solid #efefef;
+  }
+  .box1 .input-field {
+    width: 100%;
+  }
+  select {
+    width: 100%;
+  }
+}

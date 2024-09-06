@@ -45,7 +45,7 @@ export class DohoneService {
   }
 
   createOrderId() {
-    return  Math.random().toString(36).substr(2, 9);
+    return  Math.random().toString(36).substr(2, 16);
   }
 
   saveOrder(checkout: any) {

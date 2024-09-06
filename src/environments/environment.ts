@@ -1,4 +1,5 @@
 export const environment = {
+  production: true,
     // The following environment variables can be set when deploying the app to production.
     firebase: {
         apiKey: "AIzaSyA611ZaXUZZxCE7dndCnCHiMnbrWMUFyHs",

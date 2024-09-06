@@ -25,9 +25,8 @@ import { TaskForm } from '../../models/task-form';
 })
 export class DohoneComponent {
 
-  items: DohoneCart[] = []
-  tasks: TaskForm[] = JSON.parse(localStorage.getItem('cart') || '');
-  price = (3000 * this.tasks.length).toString();
+  service: TaskForm = JSON.parse(localStorage.getItem('task') || '{}');
+  price = '3000';
   dohone_rH = "DF216B76193067807036203";
   dohone_endPoint = "https://my-dohone.com/dohone/pay";
   
@@ -41,7 +40,7 @@ export class DohoneComponent {
   ){}
 
   ngOnInit() {
-    console.log(this.tasks);
+    console.log(this.service);
   }
 
   // checkoutForm: any = {
